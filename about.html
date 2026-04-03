@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Flamora · About Us | Vision, Mission, Values & Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.5;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    /* Dark mode - black, white, signature blue */
+    body.dark-mode {
+      background-color: #000000;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .site-header,
+    body.dark-mode .mobile-menu {
+      background-color: #000000;
+      box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    body.dark-mode .logo-text,
+    body.dark-mode .nav-links a,
+    body.dark-mode .header-actions a,
+    body.dark-mode .hamburger span,
+    body.dark-mode .mobile-nav-link,
+    body.dark-mode .mobile-dropdown-toggle span:first-child {
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .dropdown-content,
+    body.dark-mode .mobile-dropdown-content a {
+      background: #1a1a1a;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .unique-footer {
+      background-color: #000000;
+    }
+
+    body.dark-mode .about-card,
+    body.dark-mode .team-card,
+    body.dark-mode .value-card {
+      background: #111111;
+      border-color: #2a2a2a;
+    }
+
+    body.dark-mode .section-subtitle {
+      color: #cccccc;
+    }
+
+    /* brand blue accent */
+    .logo-text span,
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle,
+    .close-menu,
+    .newsletter-input button,
+    .social-links a:hover,
+    .footer-col a:hover,
+    .footer-bottom a:hover,
+    .about-icon,
+    .value-icon,
+    .team-social a:hover {
+      color: #003f61 !important;
+    }
+
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle {
+      border-color: #dce1e3;
+    }
+
+    .login-btn {
+      background: transparent;
+      color: #003f61;
+    }
+
+    .hamburger span {
+      background-color: #003f61;
+    }
+
+    .unique-footer {
+      border-top: 4px solid #003f61;
+    }
+
+    .active-link-style {
+      color: #003f61 !important;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .nav-links a.active-link-style::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #003f61;
+      border-radius: 2px;
+    }
+
+    body.dark-mode .active-link-style {
+      color: #5fa3b5 !important;
+    }
+
+    body.dark-mode .nav-links a.active-link-style::after {
+      background-color: #5fa3b5;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      transition: background-color 0.2s;
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #000000;
+    }
+
+    body.dark-mode .logo-text {
+      color: #ffffff !important;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .action-buttons {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      transition: all 0.3s;
+      background-color: #003f61;
+    }
+
+    @media (min-width: 1281px) {
+      .hamburger {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      display: inline-block;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #003f61;
+    }
+
+    /* Clean dropdown style with proper spacing */
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: -12px;
+      background: white;
+      min-width: 200px;
+      border-radius: 12px;
+      padding: 0.6rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      border: 1px solid #eef2f6;
+    }
+
+    body.dark-mode .dropdown-content {
+      background: #1a1a1a;
+      border-color: #2c2c2c;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-item:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(4px);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    body.dark-mode .dropdown-content a {
+      color: #ffffff;
+    }
+
+    .dropdown-content a:hover {
+      background: #f5f7fa;
+      color: #003f61;
+    }
+
+    body.dark-mode .dropdown-content a:hover {
+      background: #2a2a2a;
+      color: #5fa3b5;
+    }
+
+    /* Proper spacing for nav items with dropdown - add caret icon spacing */
+    .nav-item > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item > a::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 600;
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+
+    .nav-item:hover > a::after {
+      transform: rotate(180deg);
+    }
+
+    /* Remove dropdown arrow for non-dropdown items */
+    .nav-links > li:not(.nav-item) > a::after {
+      display: none;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      border: 1.5px solid;
+    }
+
+    .dark-toggle,
+    .rtl-toggle {
+      background: transparent;
+      border-radius: 40px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      border: 1.5px solid;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 400px;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 999;
+      padding: 5rem 2rem 2rem;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    [dir="rtl"] .mobile-menu {
+      right: auto;
+      left: -100%;
+    }
+
+    [dir="rtl"] .mobile-menu.active {
+      left: 0;
+      right: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-nav-item {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .mobile-nav-link {
+      text-decoration: none;
+      color: #000000;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: block;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-nav-link:hover {
+      color: #003f61;
+    }
+
+    .mobile-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-dropdown-toggle span:first-child {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    .mobile-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-left: 1rem;
+    }
+
+    [dir="rtl"] .mobile-dropdown-content {
+      padding-left: 0;
+      padding-right: 1rem;
+    }
+
+    .mobile-dropdown-content.active {
+      max-height: 300px;
+    }
+
+    .mobile-dropdown-content a {
+      display: block;
+      padding: 0.6rem 0;
+      text-decoration: none;
+      color: #000000;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* ========== SERVICE HERO BANNER STYLES ========== */
+    .service-hero {
+      position: relative;
+      height: 95vh;
+      min-height: 500px;
+      background: linear-gradient(135deg, #1a2a2a 0%, #0f1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .service-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/img (5).jpg') center/cover no-repeat;
+      opacity: 0.35;
+      filter: brightness(0.7);
+    }
+
+    .service-hero-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .service-hero .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: #5fa3b5;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .service-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #003f61;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background: #5fa3b5;
+      transform: translateY(-2px);
+    }
+
+    /* Animation */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    /* ABOUT PAGE CUSTOM STYLES */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Vision & Mission Grid */
+    .mission-vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .about-card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #edf2f7;
+    }
+
+    body.dark-mode .about-card {
+      background: #0f0f0f;
+      border-color: #2c2c2c;
+      box-shadow: 0 12px 30px rgba(255, 255, 255, 0.02);
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+
+    .about-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .about-card p {
+      color: #2d3e50;
+      line-height: 1.6;
+    }
+
+    body.dark-mode .about-card p {
+      color: #cccccc;
+    }
+
+    /* Values Section */
+    .values-section {
+      margin-bottom: 5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #4a5562;
+      max-width: 680px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.1rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .value-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      text-align: center;
+      transition: all 0.25s ease;
+      border: 1px solid #edf2f7;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    body.dark-mode .value-card {
+      background: #0f0f0f;
+      border-color: #2c2c2c;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: #003f6140;
+      box-shadow: 0 20px 30px rgba(0, 63, 97, 0.08);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+
+    .value-card h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .value-card p {
+      color: #4b5563;
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    body.dark-mode .value-card p {
+      color: #b0b0b0;
+    }
+
+    /* Team Grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.2rem;
+      margin-top: 1rem;
+    }
+
+    .team-card {
+      background: #ffffff;
+      border-radius: 28px;
+      overflow: hidden;
+      text-align: center;
+      padding: 1.8rem 1.5rem 2rem;
+      transition: all 0.25s ease;
+      border: 1px solid #edf2f7;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    body.dark-mode .team-card {
+      background: #0f0f0f;
+      border-color: #2c2c2c;
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      border-color: #003f6140;
+      box-shadow: 0 20px 30px rgba(0, 63, 97, 0.08);
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef2f6;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover .avatar img {
+      transform: scale(1.08);
+    }
+
+    .team-card h4 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .team-role {
+      color: #003f61;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .team-bio {
+      font-size: 0.9rem;
+      color: #4b5563;
+      padding: 0 0.5rem;
+      margin: 0.8rem 0 1rem;
+    }
+
+    body.dark-mode .team-bio {
+      color: #b0b0b0;
+    }
+
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .team-social a {
+      text-decoration: none;
+      color: #5c6f87;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .team-social a:hover {
+      color: #003f61;
+    }
+
+    /* Story Section */
+    .story-section {
+      padding: 80px 20px;
+    }
+
+    .story-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .story-image {
+      flex: 1;
+      height: 400px;
+    }
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .story-text {
+      flex: 1;
+    }
+
+    .story-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .story-text p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .story-container {
+        flex-direction: column;
+      }
+    }
+
+    /* Process Section */
+    .process-section {
+      padding: 80px 20px;
+      background: #f9fafb;
+      text-align: center;
+    }
+
+    body.dark-mode .process-section {
+      background: #0a0a0a;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .process-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .process-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .process-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    body.dark-mode .process-card p {
+      color: #aaa;
+    }
+
+    @media (max-width: 900px) {
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Experience Section */
+    .experience-section {
+      height: 500px;
+      background: url("Images/img (5).jpg") center/cover no-repeat;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .experience-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .experience-overlay h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .experience-overlay p {
+      max-width: 500px;
+    }
+
+    /* Footer */
+    .unique-footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 3rem 2rem 2rem;
+      border-top: 4px solid #003f61;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+
+    .footer-brand p {
+      margin: 1.2rem 0 1.8rem;
+      color: #cccccc;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .social-links i {
+      color: #cccccc;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .social-links i:hover {
+      color: #003f61;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-col a {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .newsletter-input {
+      display: flex;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    .newsletter-input input {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0.3rem 0;
+      width: 100%;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .newsletter-input input::placeholder {
+      color: #666;
+    }
+
+    .newsletter-input button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.8rem;
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .mission-vision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Tablet view (768px to 1024px) → 2x2 footer grid */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Flam<span>ora</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="index.html" data-nav="home">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html" data-nav="home1">Home 1</a></li>
+            <li><a href="home2.html" data-nav="home2">Home 2</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" class="active-link-style" data-nav="about">About</a></li>
+        <li><a href="service.html" data-nav="service">Service</a></li>
+        <li><a href="collection.html" data-nav="blends">Collection</a></li>
+        <li><a href="experience.html" data-nav="ritual">Experience</a></li>
+        <li><a href="personalize.html" data-nav="ritual">Personalize</a></li>
+        <li><a href="giftSet.html" data-nav="ritual">GiftSets</a></li>
+        <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div class="action-buttons">
+          <!-- Only Login button, Signup removed -->
+          <a href="login.html" class="nav-btn login-btn" data-nav="login">Login</a>
+          <div class="dark-toggle" id="darkToggleBtn" aria-label="Dark mode toggle">🌙</div>
+          <div class="rtl-toggle" id="rtlToggleBtn" aria-label="RTL toggle">LTR</div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">✕</button>
+    <ul class="mobile-nav-links">
+      <li class="mobile-nav-item" data-mobile-dropdown="homeDropdown">
+        <div class="mobile-dropdown-toggle"><span>Home</span><span>▼</span></div>
+        <div class="mobile-dropdown-content" id="homeDropdown">
+          <a href="index.html" data-nav="home1">Home 1</a>
+          <a href="home2.html" data-nav="home2">Home 2</a>
+        </div>
+      </li>
+      <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link active-link-style"
+          data-nav="about">About</a></li>
+      <li class="mobile-nav-item"><a href="service.html" class="mobile-nav-link" data-nav="service">Service</a></li>
+      <li class="mobile-nav-item"><a href="collection.html" class="mobile-nav-link" data-nav="collection">Collection</a>
+      </li>
+      <li class="mobile-nav-item"><a href="experience.html" class="mobile-nav-link" data-nav="experience">Experience</a>
+      </li>
+      <li class="mobile-nav-item"><a href="personalize.html" class="mobile-nav-link"
+          data-nav="personalize">Personalize</a></li>
+      <li class="mobile-nav-item"><a href="giftSet.html" class="mobile-nav-link" data-nav="giftsets">GiftSets</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link" data-nav="contact">Contact</a></li>
+      <li class="mobile-nav-item"><a href="login.html" class="mobile-nav-link" data-nav="login-mobile">Login</a></li>
+      <li class="mobile-nav-item">
+        <div style="display: flex; gap: 1rem; padding: 1rem 0;">
+          <div class="dark-toggle" id="mobileDarkToggle" style="width: 48%; justify-content: center;">🌙 Dark</div>
+          <div class="rtl-toggle" id="mobileRtlToggle" style="width: 48%; justify-content: center;">LTR</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- HERO BANNER -->
+  <section class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-overlay fade-up">
+      <div class="section-label">Handcrafted Excellence</div>
+      <h1>Artisanal Services<br>For Discerning Souls</h1>
+      <p>From bespoke candle crafting to sensory consultations — we offer a range of services rooted in botanical
+        tradition and handcrafted mastery.</p>
+      <a href="service.html" class="hero-btn">Explore Services →</a>
+    </div>
+  </section>
+
+  <!-- ABOUT PAGE CONTENT: Vision, Mission, Values + Team -->
+  <div class="container">
+    <!-- Section 1: Vision & Mission Grid -->
+    <div class="mission-vision-grid">
+      <div class="about-card">
+        <div class="about-icon"><i class="fa-solid fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To inspire a world where botanical artistry meets mindful living — creating spaces that breathe with
+          intention, elegance, and harmony. We envision Flamora as the global heart of aromatic rituals and sustainable
+          luxury, where every product tells a story of nature's finest essence.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon"><i class="fa-solid fa-seedling"></i></div>
+        <h3>Our Mission</h3>
+        <p>To craft exceptional botanical blends rooted in ethical sourcing, modern design, and sensory excellence. We
+          empower individuals to transform daily moments into meaningful rituals by delivering pure, innovative, and
+          beautifully designed aromatics — while nurturing a culture of sustainability and inclusivity.</p>
+      </div>
+    </div>
+
+    <!-- Section 2: Our Values -->
+    <div class="values-section">
+      <h2 class="section-title">Our guiding principles</h2>
+      <p class="section-subtitle">Three core values that shape everything we create, from seed to scent.</p>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h4>Pure Origins</h4>
+          <p>We honor nature's integrity by sourcing only the finest botanicals through ethical, transparent
+            partnerships. Every ingredient tells a story of authenticity and respect for the earth.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-dove"></i></div>
+          <h4>Mindful Craft</h4>
+          <p>Slow, intentional creation defines our process. From small-batch blending to sustainable packaging, we
+            believe true beauty emerges from patience, care, and artisanal mastery.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h4>Radical Connection</h4>
+          <p>We build bridges — between cultures, traditions, and individuals. Flamora is a space where scent becomes
+            shared experience, fostering community, inclusivity, and emotional resonance.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="story-section">
+      <div class="story-container">
+        <div class="story-image">
+          <img src="Images/img (10).jpg" alt="Our Story">
+        </div>
+        <div class="story-text">
+          <h2>From Nature to Flame</h2>
+          <p>Flamora began with a simple idea — to reconnect people with the calming power of nature through scent and
+            light.</p>
+          <p>Every candle we craft carries a story of purity, intention, and artistry — designed to elevate your
+            everyday rituals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <h2 class="section-title">Our Crafting Ritual</h2>
+      <div class="process-grid">
+        <div class="process-card">
+          <img src="Images/img (18).jpg" alt="">
+          <h3>Sourcing</h3>
+          <p>We gather the finest botanicals from ethical farms.</p>
+        </div>
+        <div class="process-card">
+          <img src="Images/img (17).jpg" alt="">
+          <h3>Blending</h3>
+          <p>Each scent is handcrafted in small batches.</p>
+        </div>
+        <div class="process-card">
+          <img src="Images/img (15).jpg" alt="">
+          <h3>Pouring</h3>
+          <p>Carefully poured with precision and love.</p>
+        </div>
+        <div class="process-card">
+          <img src="Images/img (16).jpg" alt="">
+          <h3>Finishing</h3>
+          <p>Every candle is perfected before it reaches you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-section">
+      <div class="experience-overlay">
+        <h2>Feel the Atmosphere</h2>
+        <p>Every Flamora candle transforms your space into a sanctuary of calm and connection.</p>
+      </div>
+    </section>
+
+    <!-- Section 3: Meet the Team -->
+    <div style="text-align: center; margin: 2rem 0 0.5rem;">
+      <h2 class="section-title">Meet the architects of aroma</h2>
+      <p class="section-subtitle">A passionate collective of perfumers, botanists, and storytellers shaping the Flamora
+        essence.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">
+          <img src="Images/person (5).jpg" alt="Elara Moon">
+        </div>
+        <h4>Elara Moon</h4>
+        <div class="team-role">Founder & Creative Director</div>
+        <p class="team-bio">With 15 years in botanical perfumery, Elara's vision merges heritage techniques with
+          contemporary elegance — she is the soul behind Flamora's signature blends.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">
+          <img src="Images/person (2).jpg" alt="Julian Costa">
+        </div>
+        <h4>Julian Costa</h4>
+        <div class="team-role">Head of Sustainability</div>
+        <p class="team-bio">Julian ensures every ingredient is ethically sourced and eco-conscious. He leads our
+          zero-waste initiatives and regenerative partnerships with global growers.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">
+          <img src="Images/person (3).jpg" alt="Sana Yoshida">
+        </div>
+        <h4>Sana Yoshida</h4>
+        <div class="team-role">Master Perfumer</div>
+        <p class="team-bio">Sana crafts limited-edition collections using rare botanicals. Her philosophy: scent is
+          memory, memory is ritual. She brings Japanese minimalism into every formula.</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">
+          <img src="Images/person (4).jpg" alt="Marcus Reyes">
+        </div>
+        <h4>Marcus Reyes</h4>
+        <div class="team-role">Community & Experience Lead</div>
+        <p class="team-bio">Marcus designs immersive events, workshops, and digital experiences that connect our global
+          Flamora community. He believes scent unites people across cultures.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="unique-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;"><span
+            style="color: white; font-size: 1.6rem; font-weight: 700;">Flam<span
+              style="color: #003f61;">ora</span></span></div>
+        <p>Botanical elegance, timeless aroma. Bringing nature's finest blends to your ritual.</p>
+        <div class="social-links">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>QuickLinks</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="collection.html">Collection</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Wholesale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col newsletter">
+        <h4>Mail Box</h4>
+        <p>Subscribe for early releases & 15% off.</p>
+        <div class="newsletter-input"><input type="email" placeholder="Your email" id="newsletterEmail"><button
+            id="newsletterSubmitBtn">→</button></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Flamora. All rights reserved</span><span><a href="#">Privacy</a><a
+          href="#">Terms</a><a href="#">Accessibility</a></span></div>
+  </footer>
+
+  <script>
+    (function () {
+      const darkToggle = document.getElementById('darkToggleBtn');
+      const mobileDark = document.getElementById('mobileDarkToggle');
+      const rtlToggle = document.getElementById('rtlToggleBtn');
+      const mobileRtl = document.getElementById('mobileRtlToggle');
+      const hamburger = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMenu = document.getElementById('closeMenuBtn');
+      const newsletterBtn = document.getElementById('newsletterSubmitBtn');
+      const newsletterInput = document.getElementById('newsletterEmail');
+
+      // Dark mode
+      const setDarkMode = (isDark) => {
+        document.body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('darkMode', isDark);
+        if (darkToggle) darkToggle.innerText = isDark ? '☀️' : '🌙';
+        if (mobileDark) mobileDark.innerText = isDark ? '☀️ Light' : '🌙 Dark';
+      };
+      const savedDark = localStorage.getItem('darkMode') === 'true';
+      setDarkMode(savedDark);
+      darkToggle?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+      mobileDark?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+
+      // RTL mode
+      const setRTL = (isRTL) => {
+        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        localStorage.setItem('rtlMode', isRTL);
+        const rtlText = isRTL ? 'RTL' : 'LTR';
+        if (rtlToggle) rtlToggle.innerText = rtlText;
+        if (mobileRtl) mobileRtl.innerText = rtlText;
+      };
+      const savedRTL = localStorage.getItem('rtlMode') === 'true';
+      setRTL(savedRTL);
+      rtlToggle?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+      mobileRtl?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+      // Mobile menu toggle
+      hamburger?.addEventListener('click', () => mobileMenu.classList.add('active'));
+      closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+      document.addEventListener('click', (e) => {
+        if (mobileMenu?.classList.contains('active') && !mobileMenu.contains(e.target) && !hamburger?.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+
+      // Mobile dropdown functionality
+      document.querySelectorAll('.mobile-nav-item[data-mobile-dropdown]').forEach(item => {
+        const toggleDiv = item.querySelector('.mobile-dropdown-toggle');
+        const contentId = item.getAttribute('data-mobile-dropdown');
+        const content = document.getElementById(contentId);
+        if (toggleDiv && content) {
+          toggleDiv.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.mobile-dropdown-content').forEach(drop => {
+              if (drop !== content && drop.classList.contains('active')) drop.classList.remove('active');
+            });
+            content.classList.toggle('active');
+            const arrowSpan = toggleDiv.querySelector('span:last-child');
+            if (arrowSpan) arrowSpan.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+          });
+        }
+      });
+
+      // Newsletter
+      const handleNewsletter = () => {
+        const email = newsletterInput?.value.trim();
+        if (email && email.includes('@') && email.includes('.')) {
+          alert(`Thanks ${email} — you're now on the Flamora list!`);
+          newsletterInput.value = '';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      };
+      newsletterBtn?.addEventListener('click', (e) => { e.preventDefault(); handleNewsletter(); });
+      newsletterInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleNewsletter(); } });
+
+      // Navigation links - ALLOW ACTUAL NAVIGATION
+      document.querySelectorAll('.nav-links a, .mobile-nav-link, .dropdown-content a, .hero-btn').forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === '#' || href === '' || href === null) {
+            e.preventDefault();
+          }
+          if (this.getAttribute('data-nav') !== undefined) {
+            document.querySelectorAll('.nav-links a, .mobile-nav-link').forEach(l => l.classList.remove('active-link-style'));
+            this.classList.add('active-link-style');
+          }
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1281 && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

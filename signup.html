@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Flamora · Sign Up | Botanical Essence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8f5f0 0%, #e8e2d9 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+      transition: background 0.2s ease;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: linear-gradient(135deg, #0a0a0a 0%, #001a24 100%);
+    }
+
+    /* Control Panel - Fixed for small screens */
+    .control-panel {
+      position: fixed;
+      top: 0.75rem;
+      right: 0.75rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 0.4rem 0.6rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    body:not(.dark-mode) .control-panel {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-color: rgba(0, 63, 97, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-mode .control-panel {
+      background: rgba(0, 0, 0, 0.6);
+      border-color: rgba(0, 63, 97, 0.4);
+    }
+
+    /* RTL Support for control panel */
+    body[dir="rtl"] .control-panel {
+      right: auto;
+      left: 0.75rem;
+    }
+
+    .control-btn {
+      background: rgba(0, 63, 97, 0.15);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #003f61;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body.dark-mode .control-btn {
+      background: rgba(0, 63, 97, 0.3);
+      color: #5fa3b5;
+    }
+
+    .control-btn:hover {
+      background: #003f61;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    body.dark-mode .control-btn:hover {
+      background: #003f61;
+      color: white;
+    }
+
+    /* RTL Support */
+    body[dir="rtl"] {
+      direction: rtl;
+    }
+
+    body[dir="rtl"] .input-icon {
+      left: auto;
+      right: 1rem;
+    }
+
+    body[dir="rtl"] .input-field {
+      padding: 0.85rem 2.8rem 0.85rem 1rem;
+      text-align: right;
+    }
+
+    body[dir="rtl"] .form-options {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    body[dir="rtl"] .signup-btn i {
+      transform: none;
+    }
+
+    /* Signup Container */
+    .signup-container {
+      width: 100%;
+      max-width: 480px;
+      z-index: 2;
+      animation: fadeSlideUp 0.5s ease-out;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card Design - Responsive */
+    .signup-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 63, 97, 0.15);
+      border: 1px solid rgba(0, 63, 97, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.dark-mode .signup-card {
+      background: rgba(18, 18, 20, 0.92);
+      border-color: rgba(0, 63, 97, 0.3);
+    }
+
+    .signup-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Logo & Branding */
+    .logo-section {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .logo-text {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+      margin-top: 0.25rem;
+    }
+
+    body.dark-mode .logo-text {
+      color: #ffffff;
+    }
+
+    .logo-text span {
+      color: #003f61;
+    }
+
+    .admin-badge {
+      display: inline-block;
+      background: rgba(0, 63, 97, 0.12);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #003f61;
+      margin-top: 0.35rem;
+    }
+
+    body.dark-mode .admin-badge {
+      background: rgba(0, 63, 97, 0.2);
+    }
+
+    /* Welcome text */
+    .welcome-text {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .welcome-text h2 {
+      color: #1a1a1a;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    body.dark-mode .welcome-text h2 {
+      color: #ffffff;
+    }
+
+    .welcome-text p {
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    body.dark-mode .welcome-text p {
+      color: #aaa;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .input-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      color: #003f61;
+      font-size: 1rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 2.6rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 63, 97, 0.3);
+      border-radius: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #1a1a1a;
+      transition: all 0.25s ease;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    body.dark-mode .input-field {
+      background: rgba(30, 30, 35, 0.9);
+      border-color: rgba(0, 63, 97, 0.4);
+      color: #ffffff;
+    }
+
+    .input-field:focus {
+      border-color: #003f61;
+      box-shadow: 0 0 0 3px rgba(0, 63, 97, 0.2);
+      background: #ffffff;
+    }
+
+    body.dark-mode .input-field:focus {
+      background: rgba(40, 40, 45, 0.95);
+    }
+
+    .input-field::placeholder {
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    /* Password strength indicator */
+    .password-strength {
+      margin-top: 0.3rem;
+      font-size: 0.65rem;
+    }
+
+    .strength-bar {
+      height: 3px;
+      background: rgba(0, 63, 97, 0.2);
+      border-radius: 2px;
+      margin-top: 0.2rem;
+      overflow: hidden;
+    }
+
+    .strength-fill {
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease, background 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .strength-text {
+      color: #666;
+      font-size: 0.65rem;
+      margin-top: 0.2rem;
+    }
+
+    body.dark-mode .strength-text {
+      color: #aaa;
+    }
+
+    /* Field error */
+    .field-error {
+      color: #dc2626;
+      font-size: 0.7rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .field-error.show {
+      display: block;
+    }
+
+    .input-error {
+      border-color: #dc2626 !important;
+    }
+
+    /* Terms & Conditions */
+    .terms-group {
+      margin: 1rem 0 1rem 0;
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .checkbox-wrapper input {
+      margin-top: 0.15rem;
+      accent-color: #003f61;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checkbox-wrapper label {
+      color: #5a5a5a;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    body.dark-mode .checkbox-wrapper label {
+      color: #aaa;
+    }
+
+    .checkbox-wrapper a {
+      color: #003f61;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .checkbox-wrapper a:hover {
+      text-decoration: underline;
+    }
+
+    /* Signup Button */
+    .signup-btn {
+      width: 100%;
+      background: #003f61;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      margin-top: 0.5rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 3px 10px rgba(0, 63, 97, 0.25);
+    }
+
+    .signup-btn:hover {
+      background: #002b42;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(0, 63, 97, 0.35);
+    }
+
+    .signup-btn:active {
+      transform: translateY(1px);
+    }
+
+    .signup-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.7rem;
+      margin: 1rem 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid rgba(0, 63, 97, 0.2);
+    }
+
+    .divider span {
+      margin: 0 0.7rem;
+    }
+
+    /* Login link */
+    .login-link {
+      text-align: center;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    body.dark-mode .login-link {
+      color: #aaa;
+    }
+
+    .login-link a {
+      color: #003f61;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Error message */
+    .error-message {
+      background: rgba(220, 38, 38, 0.12);
+      border-left: 3px solid #dc2626;
+      color: #dc2626;
+      padding: 0.6rem 0.9rem;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    body.dark-mode .error-message {
+      color: #fecaca;
+      background: rgba(220, 38, 38, 0.15);
+    }
+
+    .error-message.show {
+      display: flex;
+    }
+
+    /* Responsive for very small screens */
+    @media (max-width: 480px) {
+      body {
+        padding: 0.75rem;
+        align-items: flex-start;
+        padding-top: 3.5rem;
+      }
+      
+      .signup-card {
+        padding: 1.25rem 1.25rem;
+        border-radius: 1.25rem;
+      }
+      
+      .logo-text {
+        font-size: 1.5rem;
+      }
+      
+      .welcome-text h2 {
+        font-size: 1.25rem;
+      }
+      
+      .welcome-text p {
+        font-size: 0.75rem;
+      }
+      
+      .input-field {
+        padding: 0.7rem 1rem 0.7rem 2.4rem;
+        font-size: 0.85rem;
+      }
+      
+      .input-icon {
+        font-size: 0.9rem;
+        left: 0.85rem;
+      }
+      
+      body[dir="rtl"] .input-icon {
+        left: auto;
+        right: 0.85rem;
+      }
+      
+      body[dir="rtl"] .input-field {
+        padding: 0.7rem 2.4rem 0.7rem 1rem;
+      }
+      
+      .signup-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+      }
+      
+      .control-panel {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.35rem 0.5rem;
+        gap: 0.4rem;
+      }
+      
+      body[dir="rtl"] .control-panel {
+        right: auto;
+        left: 0.5rem;
+      }
+      
+      .control-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
+      
+      .checkbox-wrapper label {
+        font-size: 0.7rem;
+      }
+      
+      .strength-text, .field-error {
+        font-size: 0.6rem;
+      }
+    }
+
+    /* For very small heights */
+    @media (max-height: 650px) and (max-width: 480px) {
+      body {
+        padding-top: 3rem;
+      }
+      
+      .signup-card {
+        padding: 1rem 1.25rem;
+      }
+      
+      .logo-section {
+        margin-bottom: 0.75rem;
+      }
+      
+      .welcome-text {
+        margin-bottom: 1rem;
+      }
+      
+      .form-group {
+        margin-bottom: 0.7rem;
+      }
+      
+      .terms-group {
+        margin: 0.7rem 0;
+      }
+    }
+
+    /* Touch-friendly improvements */
+    .control-btn, .signup-btn, .checkbox-wrapper, .login-link a {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .control-btn:active, .signup-btn:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Control Panel - Top Right -->
+  <div class="control-panel">
+    <button class="control-btn" id="darkToggleBtn" title="Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="control-btn" id="rtlToggleBtn" title="RTL/LTR Mode">
+      LTR
+    </button>
+  </div>
+
+  <div class="signup-container">
+    <div class="signup-card">
+      
+      <!-- Logo & Branding -->
+      <div class="logo-section">
+        <div class="logo-text">
+          <a href="index.html" style="text-decoration: none; color: inherit;">Flam<span>ora</span></a>
+        </div>
+        <div class="admin-badge">
+          <i class="fas fa-leaf" style="font-size: 0.65rem;"></i> Create your account
+        </div>
+      </div>
+
+      <!-- Welcome message -->
+      <div class="welcome-text">
+        <h2>Join Flamora</h2>
+        <p>Start your botanical journey with us</p>
+      </div>
+
+      <!-- Error notification -->
+      <div id="errorBox" class="error-message">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorText">Please fix the errors below.</span>
+      </div>
+
+      <!-- Signup Form -->
+      <form id="signupForm" action="#" method="post">
+        <!-- Full Name -->
+        <div class="form-group">
+          <div class="input-group">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" id="fullName" class="input-field" placeholder="Full name" autocomplete="name">
+          </div>
+          <div id="nameError" class="field-error">Please enter your full name</div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <div class="input-group">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" id="email" class="input-field" placeholder="Email address" autocomplete="email">
+          </div>
+          <div id="emailError" class="field-error">Please enter a valid email address</div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <div class="input-group">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" id="password" class="input-field" placeholder="Password" autocomplete="new-password">
+          </div>
+          <div id="passwordError" class="field-error">Password must be at least 8 characters</div>
+          <div class="password-strength">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <div class="strength-text" id="strengthText">Password strength</div>
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <div class="input-group">
+            <i class="fas fa-check-circle input-icon"></i>
+            <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm password" autocomplete="new-password">
+          </div>
+          <div id="confirmError" class="field-error">Passwords do not match</div>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="terms-group">
+          <label class="checkbox-wrapper">
+            <input type="checkbox" id="termsCheckbox">
+            <label for="termsCheckbox">I agree to the <a href="#" id="termsLink">Terms & Conditions</a> and <a href="#" id="privacyLink">Privacy Policy</a></label>
+          </label>
+          <div id="termsError" class="field-error">You must agree to the terms to continue</div>
+        </div>
+
+        <button type="submit" class="signup-btn" id="signupBtn">
+          <i class="fas fa-user-plus"></i> Create Account
+        </button>
+      </form>
+
+      <div class="divider">
+        <span>already have an account?</span>
+      </div>
+
+      <div class="login-link">
+        <a href="login.html">Sign in to your account</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // DOM elements
+      const signupForm = document.getElementById('signupForm');
+      const fullNameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmInput = document.getElementById('confirmPassword');
+      const termsCheckbox = document.getElementById('termsCheckbox');
+      const signupBtn = document.getElementById('signupBtn');
+      const errorBox = document.getElementById('errorBox');
+      const errorTextSpan = document.getElementById('errorText');
+      
+      // Error elements
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const confirmError = document.getElementById('confirmError');
+      const termsError = document.getElementById('termsError');
+      
+      // Dark mode and RTL elements
+      const darkToggleBtn = document.getElementById('darkToggleBtn');
+      const rtlToggleBtn = document.getElementById('rtlToggleBtn');
+      
+      // Password strength elements
+      const strengthFill = document.getElementById('strengthFill');
+      const strengthText = document.getElementById('strengthText');
+      
+      // Helper to show error
+      function showError(message) {
+        errorTextSpan.innerText = message;
+        errorBox.classList.add('show');
+        setTimeout(() => {
+          errorBox.classList.remove('show');
+        }, 4000);
+      }
+      
+      // Password strength checker
+      function checkPasswordStrength(password) {
+        let strength = 0;
+        if (password.length >= 8) strength++;
+        if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+        if (password.match(/[0-9]/)) strength++;
+        if (password.match(/[^a-zA-Z0-9]/)) strength++;
+        
+        const percentage = (strength / 4) * 100;
+        strengthFill.style.width = percentage + '%';
+        
+        let color, text;
+        if (strength === 0) {
+          color = '#dc2626';
+          text = 'Very weak';
+        } else if (strength === 1) {
+          color = '#f97316';
+          text = 'Weak';
+        } else if (strength === 2) {
+          color = '#eab308';
+          text = 'Fair';
+        } else if (strength === 3) {
+          color = '#84cc16';
+          text = 'Good';
+        } else {
+          color = '#22c55e';
+          text = 'Strong';
+        }
+        
+        strengthFill.style.background = color;
+        strengthText.textContent = text;
+        strengthText.style.color = color;
+        
+        return strength >= 3;
+      }
+      
+      // Validate email format
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+      
+      // Validate form
+      function validateForm() {
+        let isValid = true;
+        
+        // Validate name
+        const name = fullNameInput.value.trim();
+        if (!name || name.length < 2) {
+          nameError.classList.add('show');
+          fullNameInput.classList.add('input-error');
+          isValid = false;
+        } else {
+          nameError.classList.remove('show');
+          fullNameInput.classList.remove('input-error');
+        }
+        
+        // Validate email
+        const email = emailInput.value.trim();
+        if (!email || !isValidEmail(email)) {
+          emailError.classList.add('show');
+          emailInput.classList.add('input-error');
+          isValid = false;
+        } else {
+          emailError.classList.remove('show');
+          emailInput.classList.remove('input-error');
+        }
+        
+        // Validate password
+        const password = passwordInput.value;
+        if (!password || password.length < 8) {
+          passwordError.classList.add('show');
+          passwordInput.classList.add('input-error');
+          isValid = false;
+        } else {
+          passwordError.classList.remove('show');
+          passwordInput.classList.remove('input-error');
+        }
+        
+        // Validate confirm password
+        const confirm = confirmInput.value;
+        if (password !== confirm) {
+          confirmError.classList.add('show');
+          confirmInput.classList.add('input-error');
+          isValid = false;
+        } else {
+          confirmError.classList.remove('show');
+          confirmInput.classList.remove('input-error');
+        }
+        
+        // Validate terms
+        if (!termsCheckbox.checked) {
+          termsError.classList.add('show');
+          isValid = false;
+        } else {
+          termsError.classList.remove('show');
+        }
+        
+        return isValid;
+      }
+      
+      // Handle signup submission
+      signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm()) {
+          const btn = document.querySelector('.signup-btn');
+          btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Creating account...';
+          btn.disabled = true;
+          
+          const userData = {
+            name: fullNameInput.value.trim(),
+            email: emailInput.value.trim(),
+            registeredAt: new Date().toISOString()
+          };
+          localStorage.setItem('flamora_user', JSON.stringify(userData));
+          
+          setTimeout(() => {
+            alert('✨ Account created successfully! Welcome to Flamora! ✨\n\nYou can now sign in to your account.');
+            window.location.href = 'login.html';
+          }, 800);
+        } else {
+          showError('Please fill in all fields correctly and agree to the terms.');
+        }
+      });
+      
+      // Real-time password strength check
+      passwordInput.addEventListener('input', function() {
+        checkPasswordStrength(this.value);
+        if (confirmInput.value && this.value !== confirmInput.value) {
+          confirmError.classList.add('show');
+          confirmInput.classList.add('input-error');
+        } else if (confirmInput.value && this.value === confirmInput.value) {
+          confirmError.classList.remove('show');
+          confirmInput.classList.remove('input-error');
+        }
+      });
+      
+      // Real-time confirm password check
+      confirmInput.addEventListener('input', function() {
+        if (passwordInput.value !== this.value) {
+          confirmError.classList.add('show');
+          this.classList.add('input-error');
+        } else {
+          confirmError.classList.remove('show');
+          this.classList.remove('input-error');
+        }
+      });
+      
+      // Real-time name validation
+      fullNameInput.addEventListener('input', function() {
+        if (this.value.trim().length >= 2) {
+          nameError.classList.remove('show');
+          this.classList.remove('input-error');
+        }
+      });
+      
+      // Real-time email validation
+      emailInput.addEventListener('input', function() {
+        if (isValidEmail(this.value.trim())) {
+          emailError.classList.remove('show');
+          this.classList.remove('input-error');
+        }
+      });
+      
+      // Terms and Conditions links
+      document.getElementById('termsLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('📜 Terms & Conditions\n\nBy creating an account, you agree to our terms of service, which include responsible use of our platform and respecting community guidelines.');
+      });
+      
+      document.getElementById('privacyLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('🔒 Privacy Policy\n\nWe value your privacy. Your data is securely stored and never shared with third parties without your consent.');
+      });
+      
+      // Terms checkbox click handler
+      termsCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          termsError.classList.remove('show');
+        }
+      });
+      
+      // ==================== DARK MODE FUNCTIONALITY ====================
+      function initDarkMode() {
+        const savedMode = localStorage.getItem('flamora_darkMode');
+        if (savedMode === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+          document.body.classList.remove('dark-mode');
+          darkToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+      }
+      
+      function toggleDarkMode() {
+        if (document.body.classList.contains('dark-mode')) {
+          document.body.classList.remove('dark-mode');
+          localStorage.setItem('flamora_darkMode', 'light');
+          darkToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+          document.body.classList.add('dark-mode');
+          localStorage.setItem('flamora_darkMode', 'dark');
+          darkToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+      }
+      
+      // ==================== RTL FUNCTIONALITY ====================
+      function initRTL() {
+        const savedDir = localStorage.getItem('flamora_dir');
+        if (savedDir === 'rtl') {
+          document.body.setAttribute('dir', 'rtl');
+          rtlToggleBtn.innerHTML = 'RTL';
+        } else {
+          document.body.setAttribute('dir', 'ltr');
+          rtlToggleBtn.innerHTML = 'LTR';
+        }
+      }
+      
+      function toggleRTL() {
+        if (document.body.getAttribute('dir') === 'rtl') {
+          document.body.setAttribute('dir', 'ltr');
+          localStorage.setItem('flamora_dir', 'ltr');
+          rtlToggleBtn.innerHTML = 'LTR';
+        } else {
+          document.body.setAttribute('dir', 'rtl');
+          localStorage.setItem('flamora_dir', 'rtl');
+          rtlToggleBtn.innerHTML = 'RTL';
+        }
+      }
+      
+      // Add event listeners
+      darkToggleBtn.addEventListener('click', toggleDarkMode);
+      rtlToggleBtn.addEventListener('click', toggleRTL);
+      
+      // Initialize
+      window.addEventListener('DOMContentLoaded', function() {
+        initDarkMode();
+        initRTL();
+      });
+    })();
+  </script>
+</body>
+
+</html>

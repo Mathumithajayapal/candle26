@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Flamora · Artisanal Candles | Handmade Elegance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.5;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    body.dark-mode {
+      background-color: #000000;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .site-header,
+    body.dark-mode .mobile-menu {
+      background-color: #000000;
+      box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    body.dark-mode .logo-text,
+    body.dark-mode .nav-links a,
+    body.dark-mode .header-actions a,
+    body.dark-mode .hamburger span,
+    body.dark-mode .mobile-nav-link,
+    body.dark-mode .mobile-dropdown-toggle span:first-child {
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .dropdown-content,
+    body.dark-mode .mobile-dropdown-content a {
+      background: #1a1a1a;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .unique-footer {
+      background-color: #000000;
+    }
+
+    body.dark-mode .candle-showcase-item,
+    body.dark-mode .occasion-block {
+      background: #111111;
+    }
+
+    .logo-text span,
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle,
+    .close-menu,
+    .newsletter-input button,
+    .social-links a:hover,
+    .footer-col a:hover,
+    .footer-bottom a:hover {
+      color: #003f61 !important;
+    }
+
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle {
+      border-color: #dce1e3;
+    }
+
+    .hamburger span {
+      background-color: #003f61;
+    }
+
+    .unique-footer {
+      border-top: 4px solid #003f61;
+    }
+
+    .nav-links a.active,
+    .mobile-nav-link.active {
+      color: #003f61 !important;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #003f61;
+      border-radius: 2px;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      transition: background-color 0.2s;
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #000000;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .action-buttons {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      transition: all 0.3s;
+      background-color: #003f61;
+    }
+
+    @media (min-width: 1281px) {
+      .hamburger {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      display: inline-block;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #003f61;
+    }
+
+    /* Clean dropdown style with proper spacing - added caret icon */
+    .nav-item > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item > a::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 600;
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+
+    .nav-item:hover > a::after {
+      transform: rotate(180deg);
+    }
+
+    /* Remove dropdown arrow for non-dropdown items */
+    .nav-links > li:not(.nav-item) > a::after {
+      display: none;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: -12px;
+      background: white;
+      min-width: 200px;
+      border-radius: 12px;
+      padding: 0.6rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      border: 1px solid #eef2f6;
+    }
+
+    body.dark-mode .dropdown-content {
+      background: #1a1a1a;
+      border-color: #2c2c2c;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-item:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(4px);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      transition: background 0.15s;
+    }
+
+    .dropdown-content a:hover {
+      background: #f5f7fa;
+      color: #003f61;
+    }
+
+    body.dark-mode .dropdown-content a:hover {
+      background: #2a2a2a;
+      color: #5fa3b5;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      border: 1.5px solid transparent;
+    }
+
+    .login-btn {
+      display: inline-block;
+      background: transparent;
+    }
+
+    .dark-toggle,
+    .rtl-toggle {
+      background: transparent;
+      border-radius: 40px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      border: 1.5px solid;
+    }
+
+    @media (max-width: 480px) {
+      .site-header {
+        padding: 0.6rem 1rem;
+      }
+
+      .logo-text {
+        font-size: 1.3rem;
+      }
+
+      .login-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 400px;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 999;
+      padding: 5rem 2rem 2rem;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    [dir="rtl"] .mobile-menu {
+      right: auto;
+      left: -100%;
+    }
+
+    [dir="rtl"] .mobile-menu.active {
+      left: 0;
+      right: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-nav-item {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .mobile-nav-link {
+      text-decoration: none;
+      color: #000000;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: block;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-dropdown-toggle span:first-child {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    .mobile-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-left: 1rem;
+    }
+
+    [dir="rtl"] .mobile-dropdown-content {
+      padding-left: 0;
+      padding-right: 1rem;
+    }
+
+    .mobile-dropdown-content.active {
+      max-height: 300px;
+    }
+
+    .mobile-dropdown-content a {
+      display: block;
+      padding: 0.6rem 0;
+      text-decoration: none;
+      color: #000000;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Mobile toggle row - improved alignment */
+    .mobile-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    body.dark-mode .mobile-toggle-row {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-toggle-btn {
+      background: transparent;
+      border-radius: 40px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1.5px solid #dce1e3;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    body.dark-mode .mobile-toggle-btn {
+      border-color: #3a3a3a;
+      color: #ffffff;
+    }
+
+    .mobile-toggle-btn:hover {
+      background: rgba(0, 63, 97, 0.1);
+    }
+
+    /* Hero Banner - Full Screen Cinematic */
+    .hero-cinematic {
+      position: relative;
+      height: 95vh;
+      min-height: 700px;
+      background: linear-gradient(135deg, #001f2e 0%, #00314a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-cinematic::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/img (5).jpg') center/cover no-repeat;
+      opacity: 0.4;
+      filter: brightness(0.6);
+    }
+
+    .hero-cinematic-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 6px;
+      color: #5fa3b5;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .hero-cinematic-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .hero-cinematic-content p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .hero-btn-primary {
+      display: inline-block;
+      background: #003f61;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 0px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      margin-right: 1rem;
+    }
+
+    .hero-btn-secondary {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 0px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn-primary:hover,
+    .hero-btn-secondary:hover {
+      transform: translateY(-3px);
+      background: #5fa3b5;
+      border-color: #5fa3b5;
+    }
+
+    /* Candle Showcase */
+    .candle-showcase {
+      padding: 6rem 2rem;
+      background: #f5f9fc;
+    }
+
+    body.dark-mode .candle-showcase {
+      background: #0a0f12;
+    }
+
+    .showcase-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .showcase-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .showcase-header p {
+      color: #5a6e7a;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .candle-strip {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .candle-showcase-item {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      transition: all 0.4s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    body.dark-mode .candle-showcase-item {
+      background: #1a1f22;
+    }
+
+    .candle-showcase-item:hover {
+      border-bottom-color: #003f61;
+      transform: translateY(-8px);
+    }
+
+    .candle-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .candle-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .candle-showcase-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .candle-note {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #003f61;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .candle-showcase-item p {
+      color: #6b7a85;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    body.dark-mode .candle-showcase-item p {
+      color: #b8c5cf;
+    }
+
+    .candle-price-badge {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #003f61;
+    }
+
+    /* Birthday Section - Split Screen */
+    .birthday-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 550px;
+    }
+
+    .birthday-visual {
+      position: relative;
+      background: linear-gradient(135deg, #002b3f 0%, #003f61 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .birthday-visual-content {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: brightness(0.95);
+      transition: all 0.3s;
+    }
+
+    .birthday-visual-content .big-icon {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      border-radius: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .birthday-visual-content .big-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .visual-text-overlay {
+      position: relative;
+      z-index: 2;
+      background: rgba(0, 63, 97, 0.5);
+      backdrop-filter: blur(3px);
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      margin: 1rem;
+      width: 80%;
+    }
+
+    .birthday-visual-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      margin-bottom: 0.5rem;
+    }
+
+    .birthday-visual-content p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .birthday-info {
+      background: #f0f5f8;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    body.dark-mode .birthday-info {
+      background: #0f1519;
+    }
+
+    .birthday-info .tag {
+      display: inline-block;
+      background: #003f61;
+      color: white;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      width: fit-content;
+      margin-bottom: 1.5rem;
+    }
+
+    .birthday-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .birthday-info p {
+      color: #6b7a85;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .feature-card {
+      flex: 0 0 220px;
+      width: 220px;
+      height: 200px;
+      background: rgba(0, 63, 97, 0.05);
+      border-radius: 20px;
+      padding: 1rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 63, 97, 0.2);
+      backdrop-filter: blur(2px);
+    }
+
+    body.dark-mode .feature-card {
+      background: rgba(0, 63, 97, 0.15);
+      border-color: rgba(95, 163, 181, 0.3);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: #003f61;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+      background: rgba(0, 63, 97, 0.1);
+    }
+
+    .feature-card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 0.8rem;
+      background: #e6f0f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-mode .feature-card-icon {
+      background: #1e2a30;
+    }
+
+    .feature-card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover .feature-card-icon img {
+      transform: scale(1.05);
+    }
+
+    .feature-card-text {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #4a5c68;
+      line-height: 1.3;
+    }
+
+    body.dark-mode .feature-card-text {
+      color: #cbdbe0;
+    }
+
+    .feature-card-text strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+      color: #003f61;
+    }
+
+    @media (max-width: 760px) {
+      .feature-list {
+        justify-content: center;
+      }
+
+      .feature-card {
+        flex: 0 0 180px;
+        width: 180px;
+        height: 180px;
+        padding: 0.8rem 0.5rem;
+      }
+
+      .feature-card-icon {
+        width: 52px;
+        height: 52px;
+      }
+
+      .feature-card-text {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .feature-card {
+        flex: 0 0 150px;
+        width: 150px;
+        height: 170px;
+      }
+
+      .birthday-info {
+        padding: 2rem 1.5rem;
+      }
+
+      .birthday-info h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    .btn-outline-dark {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border: 2px solid #003f61;
+      color: #003f61;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .btn-outline-dark:hover {
+      background: #003f61;
+      color: white;
+    }
+
+    /* Romantic Section */
+    .romantic-section {
+      padding: 6rem 2rem;
+      background: #001f2e;
+      color: white;
+      text-align: center;
+    }
+
+    .romantic-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .romantic-section>p {
+      color: #5fa3b5;
+      margin-bottom: 3rem;
+    }
+
+    .romantic-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .romantic-item {
+      text-align: center;
+      padding: 2rem;
+      border: 1px solid rgba(95, 163, 181, 0.3);
+      transition: all 0.3s;
+    }
+
+    .romantic-item:hover {
+      border-color: #5fa3b5;
+      transform: translateY(-5px);
+    }
+
+    .romantic-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .romantic-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .romantic-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .romantic-item p {
+      color: #8fb7c5;
+      font-size: 0.9rem;
+    }
+
+
+    /* Unique Design Section */
+    .unique-design {
+      padding: 6rem 2rem;
+      background: #f0f5f8;
+    }
+
+    body.dark-mode .unique-design {
+      background: #0a0f12;
+    }
+
+    .design-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .design-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .design-text p {
+      color: #6b7a85;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .design-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .design-gallery-item {
+      background: #d4e0e8;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .design-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .design-gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    .unique-footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 3rem 2rem 2rem;
+      border-top: 4px solid #003f61;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+
+    .footer-brand p {
+      margin: 1.2rem 0 1.8rem;
+      color: #cccccc;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .social-links a {
+      color: #cccccc;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-col a {
+      color: #cccccc;
+      text-decoration: none;
+    }
+
+    .newsletter-input {
+      display: flex;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    .newsletter-input input {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0.3rem 0;
+      width: 100%;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .newsletter-input button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.8rem;
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .birthday-split {
+        grid-template-columns: 1fr;
+      }
+
+      .romantic-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .design-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .event-features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .birthday-visual {
+        min-height: 380px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+      }
+
+      .hero-btn-primary,
+      .hero-btn-secondary {
+        display: block;
+        margin: 0.5rem auto;
+        width: 80%;
+      }
+
+      .hero-cinematic {
+        height: 80vh;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    /* Tablet view (768px to 1024px) → 2x2 footer grid */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo"><span class="logo-text">Flam<span>ora</span></span></a>
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="index.html" data-nav="home">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html" data-nav="home1">Home 1</a></li>
+            <li><a href="home2.html" data-nav="home2">Home 2</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" data-nav="about">About</a></li>
+        <li><a href="service.html" data-nav="service">Service</a></li>
+        <li><a href="collection.html" data-nav="blends">Collection</a></li>
+        <li><a href="experience.html" data-nav="ritual">Experience</a></li>
+        <li><a href="personalize.html" data-nav="personalize" class="active">Personalize</a></li>
+        <li><a href="giftSet.html" data-nav="giftsets">GiftSets</a></li>
+        <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      </ul>
+      <div class="header-actions">
+        <div class="action-buttons">
+          <!-- Only Login button - Signup removed -->
+          <a href="login.html" class="nav-btn login-btn">Login</a>
+          <div class="dark-toggle" id="darkToggleBtn">🌙</div>
+          <div class="rtl-toggle" id="rtlToggleBtn">LTR</div>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">✕</button>
+    <ul class="mobile-nav-links">
+      <li class="mobile-nav-item" data-mobile-dropdown="homeDropdown">
+        <div class="mobile-dropdown-toggle"><span>Home</span><span>▼</span></div>
+        <div class="mobile-dropdown-content" id="homeDropdown">
+          <a href="index.html" data-nav="home1">Home 1</a>
+          <a href="home2.html" data-nav="home2">Home 2</a>
+        </div>
+      </li>
+      <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link" data-nav="about">About</a></li>
+      <li class="mobile-nav-item"><a href="service.html" class="mobile-nav-link" data-nav="service">Service</a></li>
+      <li class="mobile-nav-item"><a href="collection.html" class="mobile-nav-link" data-nav="collection">Collection</a>
+      </li>
+      <li class="mobile-nav-item"><a href="experience.html" class="mobile-nav-link" data-nav="experience">Experience</a>
+      </li>
+      <li class="mobile-nav-item"><a href="personalize.html" class="mobile-nav-link active"
+          data-nav="personalize">Personalize</a></li>
+      <li class="mobile-nav-item"><a href="giftSet.html" class="mobile-nav-link" data-nav="giftsets">GiftSets</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link" data-nav="contact">Contact</a></li>
+      <li class="mobile-nav-item"><a href="login.html" class="mobile-nav-link" data-nav="login-mobile">Login</a></li>
+      <li class="mobile-nav-item">
+        <div class="mobile-toggle-row">
+          <div class="mobile-toggle-btn" id="mobileDarkToggle">🌙 Dark</div>
+          <div class="mobile-toggle-btn" id="mobileRtlToggle">LTR</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- Cinematic Hero Banner -->
+    <section class="hero-cinematic">
+      <div class="hero-cinematic-content fade-up">
+        <div class="hero-subtitle">HANDMADE WITH INTENTION</div>
+        <h1>Where Light Becomes<br>Memory</h1>
+        <p>Each candle is hand-poured in small batches, crafted with botanical wax and unique designs that tell your
+          story.</p>
+        <a href="collection.html" class="hero-btn-primary">Discover Collection</a>
+        <a href="service.html" class="hero-btn-secondary">Our Craft</a>
+      </div>
+    </section>
+
+    <!-- Candle Showcase -->
+    <section class="candle-showcase">
+      <div class="showcase-header">
+        <h2>Artisanal Collection</h2>
+        <p>Each piece is a unique creation — never mass-produced, always extraordinary</p>
+      </div>
+      <div class="candle-strip">
+        <div class="candle-showcase-item">
+          <div class="candle-icon"><img src="Images/img (8).jpg" alt="Golden Ember"></div>
+          <h3>Golden Ember</h3>
+          <div class="candle-note">AMBER · VANILLA · SANDALWOOD</div>
+          <p>Warm, grounding, and deeply comforting — like a crackling hearth on a winter evening.</p>
+          <div class="candle-price-badge">₹1,890</div>
+        </div>
+        <div class="candle-showcase-item">
+          <div class="candle-icon"><img src="Images/img (9).jpg" alt="Midnight Rose"></div>
+          <h3>Midnight Rose</h3>
+          <div class="candle-note">ROSE · BERRY · MUSK</div>
+          <p>Velvety petals entwined with dark berries — romantic, mysterious, unforgettable.</p>
+          <div class="candle-price-badge">₹2,100</div>
+        </div>
+        <div class="candle-showcase-item">
+          <div class="candle-icon"><img src="Images/img (10).jpg" alt="Cedar & Spice"></div>
+          <h3>Cedar & Spice</h3>
+          <div class="candle-note">CEDAR · CLOVE · CINNAMON</div>
+          <p>The essence of a forest cabin — warm, woody, and invigorating.</p>
+          <div class="candle-price-badge">₹1,740</div>
+        </div>
+        <div class="candle-showcase-item">
+          <div class="candle-icon"><img src="Images/img (11).jpg" alt="Lavender Dream"></div>
+          <h3>Lavender Dream</h3>
+          <div class="candle-note">LAVENDER · CHAMOMILE · HONEY</div>
+          <p>Calm, serene, and peaceful — your nightly ritual for deep rest.</p>
+          <div class="candle-price-badge">₹1,560</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Birthday Section - Split Screen -->
+    <div class="birthday-split">
+      <div class="birthday-visual">
+        <div class="birthday-visual-content">
+          <div class="big-icon"><img src="images/img (6).jpg" alt="Birthday Celebration Edge to Edge"></div>
+          <div class="visual-text-overlay">
+            <h3>Celebrate Life</h3>
+            <p>Custom birthday candles for every age</p>
+          </div>
+        </div>
+      </div>
+      <div class="birthday-info">
+        <span class="tag">BIRTHDAY MAGIC</span>
+        <h2>Make Every Birthday<br>Unforgettable</h2>
+        <p>From elegant number candles to themed designs that capture the essence of celebration. Each candle is
+          personalized to match the joy of the moment.</p>
+        <ul class="feature-list">
+          <li class="feature-card">
+            <div class="feature-card-icon"><img src="images/img (12).jpg" alt="Custom age"></div>
+            <div class="feature-card-text"><strong>Custom Age Numbers</strong> 1 to 100, gold & silver</div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card-icon"><img src="images/img (13).jpg" alt="Personalized"></div>
+            <div class="feature-card-text"><strong>Personalized Message</strong> Name engraving & love notes</div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card-icon"><img src="images/img (14).jpg" alt="Themed sets"></div>
+            <div class="feature-card-text"><strong>Themed Party Sets</strong> For kids, adults & milestones</div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card-icon"><img src="images/img (15).jpg" alt="Glitter finish"></div>
+            <div class="feature-card-text"><strong>Glitter & Metallic</strong> Elegant shimmer finishes</div>
+          </li>
+        </ul>
+        <a href="giftSet.html" class="btn-outline-dark">Create Birthday Magic →</a>
+      </div>
+    </div>
+
+    <!-- Romantic Section -->
+    <section class="romantic-section">
+      <h2>Romantic Evenings</h2>
+      <p>Set the mood for unforgettable dinners and intimate moments</p>
+      <div class="romantic-grid">
+        <div class="romantic-item">
+          <div class="romantic-icon"><img src="images/img (7).jpg" alt="Soft Amber Glow"></div>
+          <h3>Soft Amber Glow</h3>
+          <p>Dim to warm, flickering light — perfect for candlelit dinners and quiet conversations.</p>
+        </div>
+        <div class="romantic-item">
+          <div class="romantic-icon"><img src="images/img (9).jpg" alt="Aphrodisiac Scents"></div>
+          <h3>Aphrodisiac Scents</h3>
+          <p>Rose, Vanilla, Jasmine — fragrances that awaken romance and intimacy.</p>
+        </div>
+        <div class="romantic-item">
+          <div class="romantic-icon"><img src="images/img (10).jpg" alt="Couples Collection"></div>
+          <h3>Couples Collection</h3>
+          <p>Heart-shaped candles and ready-to-gift romantic sets for two.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unique Design Section -->
+    <section class="unique-design">
+      <div class="design-layout">
+        <div class="design-text">
+          <h2>Unique Designs,<br>Handmade Beauty</h2>
+          <p>Every Flamora candle is a one-of-a-kind piece — never two alike. Our artisans pour each creation with
+            intention, resulting in organic patterns and textures that mass production can never replicate.</p>
+          <p>From marble swirls to gold leaf accents, each design tells its own story.</p>
+          <a href="collection.html" class="btn-outline-dark" style="margin-top: 1rem;">Explore Designs →</a>
+        </div>
+        <div class="design-gallery">
+          <div class="design-gallery-item"><img src="Images/img (12).jpg" alt="Marble Swirl"></div>
+          <div class="design-gallery-item"><img src="Images/img (13).jpg" alt="Gold Leaf"></div>
+          <div class="design-gallery-item"><img src="Images/img (14).jpg" alt="Terrazzo Art"></div>
+          <div class="design-gallery-item"><img src="Images/img (15).jpg" alt="Crackled Glaze"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="unique-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
+          <span style="color: white; font-size: 1.6rem; font-weight: 700;">Flam<span
+              style="color: #003f61;">ora</span></span>
+        </div>
+        <p>Botanical elegance, timeless aroma. Bringing nature's finest blends to your ritual.</p>
+        <div class="social-links"><i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>QuickLinks</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="collection.html">Collection</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Wholesale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col newsletter">
+        <h4>Mail Box</h4>
+        <p>Subscribe for early releases & 15% off.</p>
+        <div class="newsletter-input"><input type="email" placeholder="Your email" id="newsletterEmail"><button
+            id="newsletterSubmitBtn">→</button></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Flamora. All rights reserved</span><span><a href="#">Privacy</a><a
+          href="#">Terms</a><a href="#">Accessibility</a></span></div>
+  </footer>
+
+  <script>
+    (function () {
+      const darkToggle = document.getElementById('darkToggleBtn');
+      const mobileDark = document.getElementById('mobileDarkToggle');
+      const rtlToggle = document.getElementById('rtlToggleBtn');
+      const mobileRtl = document.getElementById('mobileRtlToggle');
+      const hamburger = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMenu = document.getElementById('closeMenuBtn');
+      const newsletterBtn = document.getElementById('newsletterSubmitBtn');
+      const newsletterInput = document.getElementById('newsletterEmail');
+
+      function setActiveLink(clickedLink) {
+        document.querySelectorAll('.nav-links a, .mobile-nav-link').forEach(link => link.classList.remove('active'));
+        clickedLink.classList.add('active');
+      }
+
+      // Navigation links - ALLOW ACTUAL NAVIGATION
+      document.querySelectorAll('.nav-links a, .mobile-nav-link, .dropdown-content a, .hero-btn-primary, .hero-btn-secondary, .btn-outline-dark').forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === '#' || href === '' || href === null) {
+            e.preventDefault();
+          }
+          if (this.getAttribute('data-nav') !== undefined || this.classList.contains('mobile-nav-link')) {
+            setActiveLink(this);
+          }
+        });
+      });
+
+      const setDarkMode = (isDark) => {
+        document.body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('darkMode', isDark);
+        if (darkToggle) darkToggle.innerText = isDark ? '☀️' : '🌙';
+        if (mobileDark) mobileDark.innerHTML = isDark ? '☀️ Light' : '🌙 Dark';
+      };
+      const savedDark = localStorage.getItem('darkMode') === 'true';
+      setDarkMode(savedDark);
+      darkToggle?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+      mobileDark?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+
+      const setRTL = (isRTL) => {
+        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        localStorage.setItem('rtlMode', isRTL);
+        const t = isRTL ? 'RTL' : 'LTR';
+        if (rtlToggle) rtlToggle.innerText = t;
+        if (mobileRtl) mobileRtl.innerText = t;
+      };
+      const savedRTL = localStorage.getItem('rtlMode') === 'true';
+      setRTL(savedRTL);
+      rtlToggle?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+      mobileRtl?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+      hamburger?.addEventListener('click', () => mobileMenu.classList.add('active'));
+      closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+      document.addEventListener('click', (e) => {
+        if (mobileMenu?.classList.contains('active') && !mobileMenu.contains(e.target) && !hamburger?.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-item[data-mobile-dropdown]').forEach(item => {
+        const toggleDiv = item.querySelector('.mobile-dropdown-toggle');
+        const contentId = item.getAttribute('data-mobile-dropdown');
+        const content = document.getElementById(contentId);
+        if (toggleDiv && content) {
+          toggleDiv.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.mobile-dropdown-content').forEach(drop => {
+              if (drop !== content && drop.classList.contains('active')) drop.classList.remove('active');
+            });
+            content.classList.toggle('active');
+            const arrowSpan = toggleDiv.querySelector('span:last-child');
+            if (arrowSpan) arrowSpan.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+          });
+        }
+      });
+
+      const handleNewsletter = () => {
+        const email = newsletterInput?.value.trim();
+        if (email && email.includes('@') && email.includes('.')) {
+          alert(`Thanks ${email} — you're now on the Flamora list!`);
+          newsletterInput.value = '';
+        } else alert('Please enter a valid email address.');
+      };
+      newsletterBtn?.addEventListener('click', (e) => { e.preventDefault(); handleNewsletter(); });
+      newsletterInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleNewsletter(); } });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1281 && mobileMenu.classList.contains('active')) mobileMenu.classList.remove('active');
+      });
+
+      // Ensure "Personalize" link remains active on page load
+      const activeDesktopLink = document.querySelector('.nav-links a[data-nav="personalize"]');
+      if (activeDesktopLink) setActiveLink(activeDesktopLink);
+      const activeMobileLink = document.querySelector('.mobile-nav-link[data-nav="personalize"]');
+      if (activeMobileLink) activeMobileLink.classList.add('active');
+    })();
+  </script>
+</body>
+
+</html>

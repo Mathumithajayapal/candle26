@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Flamora · Gift Sets | Handmade Candles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.5;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    /* Dark mode - only black, white, blue */
+    body.dark-mode {
+      background-color: #000000;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .site-header,
+    body.dark-mode .mobile-menu {
+      background-color: #000000;
+      box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    body.dark-mode .logo-text,
+    body.dark-mode .nav-links a,
+    body.dark-mode .header-actions a,
+    body.dark-mode .hamburger span,
+    body.dark-mode .mobile-nav-link,
+    body.dark-mode .mobile-dropdown-toggle span:first-child {
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .dropdown-content,
+    body.dark-mode .mobile-dropdown-content a {
+      background: #1a1a1a;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .unique-footer {
+      background-color: #000000;
+    }
+
+    /* Blue color only */
+    .logo-text span,
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle,
+    .close-menu,
+    .newsletter-input button,
+    .social-links a:hover,
+    .footer-col a:hover,
+    .footer-bottom a:hover {
+      color: #003f61 !important;
+    }
+
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle {
+      border-color: #dce1e3;
+    }
+
+    .hamburger span {
+      background-color: #003f61;
+    }
+
+    .mobile-dropdown-toggle span:last-child {
+      color: #003f61;
+    }
+
+    .unique-footer {
+      border-top: 4px solid #003f61;
+    }
+
+    /* Active link styles */
+    .nav-links a.active,
+    .mobile-nav-link.active {
+      color: #003f61 !important;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #003f61;
+      border-radius: 2px;
+    }
+
+    body.dark-mode .nav-links a.active,
+    body.dark-mode .mobile-nav-link.active {
+      color: #5fa3b5 !important;
+    }
+
+    body.dark-mode .nav-links a.active::after {
+      background-color: #5fa3b5;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      transition: background-color 0.2s;
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #000000;
+    }
+
+    body.dark-mode .logo-text {
+      color: #ffffff !important;
+    }
+
+    /* Navigation */
+    .nav-links {
+      display: none;
+    }
+
+    .action-buttons {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      transition: all 0.3s;
+      background-color: #003f61;
+    }
+
+    body.dark-mode .hamburger span {
+      background-color: #ffffff;
+    }
+
+    @media (min-width: 1281px) {
+      .hamburger {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      display: inline-block;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #003f61;
+    }
+
+    /* Clean dropdown style with proper spacing - added caret icon */
+    .nav-item > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item > a::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 600;
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+
+    .nav-item:hover > a::after {
+      transform: rotate(180deg);
+    }
+
+    /* Remove dropdown arrow for non-dropdown items */
+    .nav-links > li:not(.nav-item) > a::after {
+      display: none;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: -12px;
+      background: white;
+      min-width: 200px;
+      border-radius: 12px;
+      padding: 0.6rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      border: 1px solid #eef2f6;
+    }
+
+    body.dark-mode .dropdown-content {
+      background: #1a1a1a;
+      border-color: #2c2c2c;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-item:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(4px);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      transition: background 0.15s;
+    }
+
+    .dropdown-content a:hover {
+      background: #f5f7fa;
+      color: #003f61;
+    }
+
+    body.dark-mode .dropdown-content a:hover {
+      background: #2a2a2a;
+      color: #5fa3b5;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      border: 1.5px solid transparent;
+    }
+
+    .login-btn {
+      display: inline-block;
+      background: transparent;
+    }
+
+    .dark-toggle,
+    .rtl-toggle {
+      background: transparent;
+      border-radius: 40px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      border: 1.5px solid;
+    }
+
+    @media (max-width: 480px) {
+      .site-header {
+        padding: 0.6rem 1rem;
+      }
+
+      .logo-text {
+        font-size: 1.3rem;
+      }
+
+      .login-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 400px;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 999;
+      padding: 5rem 2rem 2rem;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    [dir="rtl"] .mobile-menu {
+      right: auto;
+      left: -100%;
+    }
+
+    [dir="rtl"] .mobile-menu.active {
+      left: 0;
+      right: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-nav-item {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .mobile-nav-link {
+      text-decoration: none;
+      color: #000000;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: block;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-nav-link:hover {
+      color: #003f61;
+    }
+
+    .mobile-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-dropdown-toggle span:first-child {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    .mobile-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-left: 1rem;
+    }
+
+    [dir="rtl"] .mobile-dropdown-content {
+      padding-left: 0;
+      padding-right: 1rem;
+    }
+
+    .mobile-dropdown-content.active {
+      max-height: 300px;
+    }
+
+    .mobile-dropdown-content a {
+      display: block;
+      padding: 0.6rem 0;
+      text-decoration: none;
+      color: #000000;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      transition: transform 0.2s;
+    }
+
+    /* Footer */
+    .unique-footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 3rem 2rem 2rem;
+      border-top: 4px solid #003f61;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+
+    .footer-brand p {
+      margin: 1.2rem 0 1.8rem;
+      color: #cccccc;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .social-links a {
+      color: #cccccc;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-col a {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .newsletter p {
+      color: #cccccc;
+      margin-bottom: 1.2rem;
+    }
+
+    .newsletter-input {
+      display: flex;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    .newsletter-input input {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0.3rem 0;
+      width: 100%;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .newsletter-input input::placeholder {
+      color: #666;
+    }
+
+    .newsletter-input button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.8rem;
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom a {
+      color: #999;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    @media (max-width: 900px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+      }
+    }
+
+    /* ===== GIFTSET PAGE CUSTOM STYLES ===== */
+    .giftset-hero {
+      background: linear-gradient(135deg, #f9f5ef 0%, #ece4db 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 63, 97, 0.2);
+    }
+
+    body.dark-mode .giftset-hero {
+      background: #111111;
+      border-bottom-color: rgba(95, 163, 181, 0.3);
+    }
+
+    .giftset-hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: #003f61;
+    }
+
+    body.dark-mode .giftset-hero h1 {
+      color: #5fa3b5;
+    }
+
+    .giftset-hero p {
+      font-size: 1.2rem;
+      max-width: 620px;
+      margin: 0 auto;
+      color: #2d2d2d;
+    }
+
+    body.dark-mode .giftset-hero p {
+      color: #dddddd;
+    }
+
+    /* Unique Sets Container */
+    .unique-sets {
+      max-width: 1280px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    /* each set is a full-width section with alternating pattern */
+    .gift-set-block {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-bottom: 5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    body.dark-mode .gift-set-block {
+      border-bottom-color: #2a2a2a;
+    }
+
+    .set-image {
+      flex: 1.1;
+      min-width: 280px;
+      width: 100%;
+      max-width: 500px;
+      height: 400px;
+    }
+
+    .set-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .set-image img:hover {
+      transform: scale(1.01);
+    }
+
+    .set-content {
+      flex: 0.9;
+      min-width: 260px;
+    }
+
+    .set-content h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.3px;
+      color: #003f61;
+    }
+
+    body.dark-mode .set-content h2 {
+      color: #5fa3b5;
+    }
+
+    .set-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0.75rem 0 1rem 0;
+      color: #1e2a32;
+    }
+
+    body.dark-mode .set-price {
+      color: #dddddd;
+    }
+
+    .set-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1.8rem;
+      color: #3a3a3a;
+    }
+
+    body.dark-mode .set-desc {
+      color: #c0c0c0;
+    }
+
+    .candle-details {
+      list-style: none;
+      margin: 1.2rem 0;
+    }
+
+    .candle-details li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .candle-details li::before {
+      content: "✦";
+      color: #003f61;
+      font-weight: bold;
+    }
+
+    body.dark-mode .candle-details li::before {
+      color: #5fa3b5;
+    }
+
+    .set-btn {
+      display: inline-block;
+      background: #003f61;
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 0.5rem;
+    }
+
+    .set-btn:hover {
+      background: #002d47;
+      transform: scale(0.98);
+    }
+
+    body.dark-mode .set-btn {
+      background: #1a5a72;
+    }
+
+    body.dark-mode .set-btn:hover {
+      background: #0f4459;
+    }
+
+    /* alternate layout: image right / content left */
+    .gift-set-block.reverse {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 860px) {
+
+      .gift-set-block,
+      .gift-set-block.reverse {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .candle-details li {
+        justify-content: center;
+      }
+
+      .set-content {
+        text-align: center;
+      }
+
+      .giftset-hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .set-image {
+        height: 320px;
+      }
+    }
+
+    /* ========== SERVICE HERO BANNER STYLES ========== */
+    .service-hero {
+      position: relative;
+      height: 95vh;
+      min-height: 500px;
+      background: linear-gradient(135deg, #1a2a2a 0%, #0f1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .service-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/img (5).jpg') center/cover no-repeat;
+      opacity: 0.35;
+      filter: brightness(0.7);
+    }
+
+    .service-hero-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .service-hero .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: #5fa3b5;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .service-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #003f61;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background: #5fa3b5;
+      transform: translateY(-2px);
+    }
+
+    .fade-up {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Tablet view (768px to 1024px) → 2x2 footer grid */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Flam<span>ora</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="index.html" data-nav="home">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html" data-nav="home1">Home 1</a></li>
+            <li><a href="home2.html" data-nav="home2">Home 2</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" data-nav="about">About</a></li>
+        <li><a href="service.html" data-nav="service">Service</a></li>
+        <li><a href="collection.html" data-nav="blends">Collection</a></li>
+        <li><a href="experience.html" data-nav="ritual">Experience</a></li>
+        <li><a href="personalize.html" data-nav="personalize">Personalize</a></li>
+        <li><a href="giftSet.html" class="active" data-nav="giftsets">GiftSets</a></li>
+        <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div class="action-buttons">
+          <!-- Only Login button - Signup removed -->
+          <a href="login.html" class="nav-btn login-btn" data-nav="login">Login</a>
+          <div class="dark-toggle" id="darkToggleBtn" aria-label="Dark mode toggle">🌙</div>
+          <div class="rtl-toggle" id="rtlToggleBtn" aria-label="RTL toggle">LTR</div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">✕</button>
+    <ul class="mobile-nav-links">
+      <li class="mobile-nav-item" data-mobile-dropdown="homeDropdown">
+        <div class="mobile-dropdown-toggle"><span>Home</span><span>▼</span></div>
+        <div class="mobile-dropdown-content" id="homeDropdown">
+          <a href="index.html" data-nav="home1">Home 1</a>
+          <a href="home2.html" data-nav="home2">Home 2</a>
+        </div>
+      </li>
+      <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link" data-nav="about">About</a></li>
+      <li class="mobile-nav-item"><a href="service.html" class="mobile-nav-link" data-nav="service">Service</a></li>
+      <li class="mobile-nav-item"><a href="collection.html" class="mobile-nav-link" data-nav="collection">Collection</a>
+      </li>
+      <li class="mobile-nav-item"><a href="experience.html" class="mobile-nav-link" data-nav="experience">Experience</a>
+      </li>
+      <li class="mobile-nav-item"><a href="personalize.html" class="mobile-nav-link"
+          data-nav="personalize">Personalize</a></li>
+      <li class="mobile-nav-item"><a href="giftSet.html" class="mobile-nav-link active" data-nav="giftsets">GiftSets</a>
+      </li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link" data-nav="contact">Contact</a></li>
+      <li class="mobile-nav-item"><a href="login.html" class="mobile-nav-link" data-nav="login-mobile">Login</a></li>
+      <li class="mobile-nav-item">
+        <div style="display: flex; gap: 1rem; padding: 1rem 0;">
+          <div class="dark-toggle" id="mobileDarkToggle" style="width: 48%; justify-content: center;">🌙 Dark</div>
+          <div class="rtl-toggle" id="mobileRtlToggle" style="width: 48%; justify-content: center;">LTR</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-overlay fade-up">
+      <div class="section-label">Handcrafted Excellence</div>
+      <h1>Artisanal Services<br>For Discerning Souls</h1>
+      <p>From bespoke candle crafting to sensory consultations — we offer a range of services rooted in botanical
+        tradition and handcrafted mastery.</p>
+      <a href="service.html" class="hero-btn">Explore Services →</a>
+    </div>
+  </section>
+
+  <!-- UNIQUE SETS SECTION: 4 distinct sets, alternating left/right image & content -->
+  <div class="unique-sets">
+    <!-- Set 1: Left image, right content -->
+    <div class="gift-set-block">
+      <div class="set-image">
+        <img src="images/img (10).jpg" alt="Nocturne Obsidian Candle Set">
+      </div>
+      <div class="set-content">
+        <h2>Nocturne Obsidian</h2>
+        <div class="set-price">$78 · Limited Edition</div>
+        <p class="set-desc">A hand-poured black glass vessel with midnight jasmine & sandalwood. Includes two 120g
+          candles + a matte obsidian snuffer. Perfect for evening meditation.</p>
+        <ul class="candle-details">
+          <li>Jasmine absolute & Australian sandalwood</li>
+          <li>100% soy wax, lead-free cotton wick</li>
+          <li>Vegan & cruelty-free, 45h burn time per candle</li>
+        </ul>
+        <a href="#" class="set-btn" data-nav="add-nocturne">Explore Set →</a>
+      </div>
+    </div>
+
+    <!-- Set 2: Reverse layout -> image right, content left -->
+    <div class="gift-set-block reverse">
+      <div class="set-image">
+        <img src="images/img (11).jpg" alt="Terracotta Botanicals">
+      </div>
+      <div class="set-content">
+        <h2>Terracotta Botanicals</h2>
+        <div class="set-price">$64 · Signature Ritual</div>
+        <p class="set-desc">Hand-thrown terracotta vessels filled with rosemary, thyme & sun-dried olive leaf. Includes
+          a pack of wildflower seeds to regrow after use.</p>
+        <ul class="candle-details">
+          <li>Herbal infusion: rosemary + mediterranean fig</li>
+          <li>Biodegradable cork lid, reusable planter</li>
+          <li>80h combined burn, natural essential oils</li>
+        </ul>
+        <a href="#" class="set-btn" data-nav="add-terracotta">Discover Set →</a>
+      </div>
+    </div>
+
+    <!-- Set 3: Left image, right content (amber glass theme) -->
+    <div class="gift-set-block">
+      <div class="set-image">
+        <img src="images/img (12).jpg" alt="Amber Noir Triple Wick">
+      </div>
+      <div class="set-content">
+        <h2>Amber Noir Triple Wick</h2>
+        <div class="set-price">$96 · Grand Luminaire</div>
+        <p class="set-desc">Generous 400g triple-wick candle in amber glass with smoky vetiver, black tea, and aged
+          cedar. Complete with a minimalist brass lid & wooden wick trimmer.</p>
+        <ul class="candle-details">
+          <li>Smoky vetiver, bergamot, and cedarwood</li>
+          <li>Triple cotton wick for even pool, 70h burn</li>
+          <li>Hand-poured in small batches, gift-ready box</li>
+        </ul>
+        <a href="#" class="set-btn" data-nav="add-amber">Reserve Set →</a>
+      </div>
+    </div>
+
+    <!-- Set 4: Reverse layout -> image right, content left (Moonlit collection) -->
+    <div class="gift-set-block reverse">
+      <div class="set-image">
+        <img src="images/img (13).jpg" alt="Moonlit Alchemy Duo">
+      </div>
+      <div class="set-content">
+        <h2>Moonlit Alchemy Duo</h2>
+        <div class="set-price">$112 · Celestial Pairing</div>
+        <p class="set-desc">Two matching lunar-inspired candles: calming lavender & silver fir, plus deep vanilla
+          bourbon. Housed in a hand-painted ceramic vessel with 24k gold accents.</p>
+        <ul class="candle-details">
+          <li>Lavender supreme + douglas fir | Vanilla bourbon + myrrh</li>
+          <li>Ceramic keepsake box, gold-trimmed dust cover</li>
+          <li>100+ hours total burn, phthalate-free fragrance</li>
+        </ul>
+        <a href="#" class="set-btn" data-nav="add-moonlit">Gift This Set →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="unique-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
+          <span style="color: white; font-size: 1.6rem; font-weight: 700;">Flam<span
+              style="color: #003f61;">ora</span></span>
+        </div>
+        <p>Botanical elegance, timeless aroma. Bringing nature's finest blends to your ritual.</p>
+        <div class="social-links"><i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>QuickLinks</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Wholesale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col newsletter">
+        <h4>Mail Box</h4>
+        <p>Subscribe for early releases & 15% off.</p>
+        <div class="newsletter-input"><input type="email" placeholder="Your email" id="newsletterEmail"><button
+            id="newsletterSubmitBtn">→</button></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Flamora. All rights reserved</span><span><a href="#">Privacy</a><a
+          href="#">Terms</a><a href="#">Accessibility</a></span></div>
+  </footer>
+
+  <script>
+    (function () {
+      const darkToggle = document.getElementById('darkToggleBtn');
+      const mobileDark = document.getElementById('mobileDarkToggle');
+      const rtlToggle = document.getElementById('rtlToggleBtn');
+      const mobileRtl = document.getElementById('mobileRtlToggle');
+      const hamburger = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMenu = document.getElementById('closeMenuBtn');
+      const newsletterBtn = document.getElementById('newsletterSubmitBtn');
+      const newsletterInput = document.getElementById('newsletterEmail');
+
+      function setActiveLink(clickedLink) {
+        document.querySelectorAll('.nav-links a, .mobile-nav-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        clickedLink.classList.add('active');
+      }
+
+      // Navigation links - ALLOW ACTUAL NAVIGATION
+      document.querySelectorAll('.nav-links a, .mobile-nav-link, .dropdown-content a, .hero-btn, .set-btn').forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          // Only prevent default if href is "#" or empty - otherwise let the browser navigate
+          if (href === '#' || href === '' || href === null) {
+            e.preventDefault();
+          }
+          // Update active class for visual feedback
+          if (this.getAttribute('data-nav') !== undefined || this.classList.contains('mobile-nav-link')) {
+            setActiveLink(this);
+          }
+        });
+      });
+
+      // Dark mode
+      const setDarkMode = (isDark) => {
+        document.body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('darkMode', isDark);
+        if (darkToggle) darkToggle.innerText = isDark ? '☀️' : '🌙';
+        if (mobileDark) mobileDark.innerText = isDark ? '☀️ Light' : '🌙 Dark';
+      };
+      const savedDark = localStorage.getItem('darkMode') === 'true';
+      setDarkMode(savedDark);
+      darkToggle?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+      mobileDark?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+
+      // RTL mode
+      const setRTL = (isRTL) => {
+        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        localStorage.setItem('rtlMode', isRTL);
+        const rtlText = isRTL ? 'RTL' : 'LTR';
+        if (rtlToggle) rtlToggle.innerText = rtlText;
+        if (mobileRtl) mobileRtl.innerText = rtlText;
+      };
+      const savedRTL = localStorage.getItem('rtlMode') === 'true';
+      setRTL(savedRTL);
+      rtlToggle?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+      mobileRtl?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+      // Mobile menu
+      hamburger?.addEventListener('click', () => mobileMenu.classList.add('active'));
+      closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+      document.addEventListener('click', (e) => {
+        if (mobileMenu?.classList.contains('active') && !mobileMenu.contains(e.target) && !hamburger?.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+
+      // Mobile dropdowns
+      document.querySelectorAll('.mobile-nav-item[data-mobile-dropdown]').forEach(item => {
+        const toggleDiv = item.querySelector('.mobile-dropdown-toggle');
+        const contentId = item.getAttribute('data-mobile-dropdown');
+        const content = document.getElementById(contentId);
+        if (toggleDiv && content) {
+          toggleDiv.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.mobile-dropdown-content').forEach(drop => {
+              if (drop !== content && drop.classList.contains('active')) drop.classList.remove('active');
+            });
+            content.classList.toggle('active');
+            const arrowSpan = toggleDiv.querySelector('span:last-child');
+            if (arrowSpan) arrowSpan.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+          });
+        }
+      });
+
+      // Newsletter
+      const handleNewsletter = () => {
+        const email = newsletterInput?.value.trim();
+        if (email && email.includes('@') && email.includes('.')) {
+          alert(`Thanks ${email} — you're now on the Flamora list!`);
+          newsletterInput.value = '';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      };
+      newsletterBtn?.addEventListener('click', (e) => { e.preventDefault(); handleNewsletter(); });
+      newsletterInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleNewsletter(); } });
+
+      // Close mobile menu on resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1281 && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

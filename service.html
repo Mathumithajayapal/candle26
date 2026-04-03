@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Flamora · Artisanal Services | Handcrafted Excellence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.5;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    /* Dark mode */
+    body.dark-mode {
+      background-color: #000000;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .site-header,
+    body.dark-mode .mobile-menu {
+      background-color: #000000;
+      box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    body.dark-mode .logo-text,
+    body.dark-mode .nav-links a,
+    body.dark-mode .header-actions a,
+    body.dark-mode .hamburger span,
+    body.dark-mode .mobile-nav-link,
+    body.dark-mode .mobile-dropdown-toggle span:first-child {
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .dropdown-content,
+    body.dark-mode .mobile-dropdown-content a {
+      background: #1a1a1a;
+      color: #ffffff !important;
+    }
+
+    body.dark-mode .unique-footer {
+      background-color: #000000;
+    }
+
+    body.dark-mode .service-hero,
+    body.dark-mode .services-section,
+    body.dark-mode .process-section,
+    body.dark-mode .service-cta {
+      background-color: #0a0a0a;
+    }
+
+    /* Blue accent */
+    .logo-text span,
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle,
+    .close-menu,
+    .newsletter-input button,
+    .social-links a:hover,
+    .footer-col a:hover,
+    .footer-bottom a:hover {
+      color: #003f61 !important;
+    }
+
+    .login-btn,
+    .dark-toggle,
+    .rtl-toggle {
+      border-color: #dce1e3;
+    }
+
+    .hamburger span {
+      background-color: #003f61;
+    }
+
+    .mobile-dropdown-toggle span:last-child {
+      color: #003f61;
+    }
+
+    .unique-footer {
+      border-top: 4px solid #003f61;
+    }
+
+    .nav-links a.active,
+    .mobile-nav-link.active {
+      color: #003f61 !important;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #003f61;
+      border-radius: 2px;
+    }
+
+    body.dark-mode .nav-links a.active,
+    body.dark-mode .mobile-nav-link.active {
+      color: #5fa3b5 !important;
+    }
+
+    body.dark-mode .nav-links a.active::after {
+      background-color: #5fa3b5;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      transition: background-color 0.2s;
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #000000;
+    }
+
+    body.dark-mode .logo-text {
+      color: #ffffff !important;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .action-buttons {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      transition: all 0.3s;
+      background-color: #003f61;
+    }
+
+    body.dark-mode .hamburger span {
+      background-color: #ffffff;
+    }
+
+    @media (min-width: 1281px) {
+      .hamburger {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      display: inline-block;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #003f61;
+    }
+
+    /* Clean dropdown style with proper spacing - added caret icon */
+    .nav-item > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item > a::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 600;
+      font-size: 0.75rem;
+      transition: transform 0.2s;
+    }
+
+    .nav-item:hover > a::after {
+      transform: rotate(180deg);
+    }
+
+    /* Remove dropdown arrow for non-dropdown items */
+    .nav-links > li:not(.nav-item) > a::after {
+      display: none;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: -12px;
+      background: white;
+      min-width: 200px;
+      border-radius: 12px;
+      padding: 0.6rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      border: 1px solid #eef2f6;
+    }
+
+    body.dark-mode .dropdown-content {
+      background: #1a1a1a;
+      border-color: #2c2c2c;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-item:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(4px);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      transition: background 0.15s;
+    }
+
+    .dropdown-content a:hover {
+      background: #f5f7fa;
+      color: #003f61;
+    }
+
+    body.dark-mode .dropdown-content a:hover {
+      background: #2a2a2a;
+      color: #5fa3b5;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      border: 1.5px solid transparent;
+    }
+
+    .login-btn {
+      display: inline-block;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dark-toggle,
+    .rtl-toggle {
+      background: transparent;
+      border-radius: 40px;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      border: 1.5px solid;
+    }
+
+    @media (max-width: 480px) {
+      .site-header {
+        padding: 0.6rem 1rem;
+      }
+
+      .logo-text {
+        font-size: 1.3rem;
+      }
+
+      .login-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 400px;
+      height: 100vh;
+      background: #ffffff;
+      z-index: 999;
+      padding: 5rem 2rem 2rem;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    [dir="rtl"] .mobile-menu {
+      right: auto;
+      left: -100%;
+    }
+
+    [dir="rtl"] .mobile-menu.active {
+      left: 0;
+      right: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-nav-item {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .mobile-nav-link {
+      text-decoration: none;
+      color: #000000;
+      font-size: 1.1rem;
+      font-weight: 500;
+      display: block;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-nav-link:hover {
+      color: #003f61;
+    }
+
+    .mobile-dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+    }
+
+    .mobile-dropdown-toggle span:first-child {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #000000;
+    }
+
+    .mobile-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-left: 1rem;
+    }
+
+    [dir="rtl"] .mobile-dropdown-content {
+      padding-left: 0;
+      padding-right: 1rem;
+    }
+
+    .mobile-dropdown-content.active {
+      max-height: 300px;
+    }
+
+    .mobile-dropdown-content a {
+      display: block;
+      padding: 0.6rem 0;
+      text-decoration: none;
+      color: #000000;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      transition: transform 0.2s;
+    }
+
+    /* ========== SERVICE PAGE STYLES ========== */
+
+    /* Hero Banner */
+    .service-hero {
+      position: relative;
+      height: 95vh;
+      min-height: 500px;
+      background: linear-gradient(135deg, #1a2a2a 0%, #0f1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .service-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/img (5).jpg') center/cover no-repeat;
+      opacity: 0.35;
+      filter: brightness(0.7);
+    }
+
+    .service-hero-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .service-hero .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: #5fa3b5;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .service-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #003f61;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background: #5fa3b5;
+      transform: translateY(-2px);
+    }
+
+    /* 3x3 GLASS CARD GRID SECTION (updated ratio and homemade candle focus) */
+    .services-grid-section {
+      padding: 5rem 2rem;
+      background-color: #fefaf5;
+    }
+
+    body.dark-mode .services-grid-section {
+      background-color: #0f0f0f;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+    }
+
+    .section-header .tag {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      color: #003f61;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: #5e5e5e;
+      font-size: 1rem;
+    }
+
+    body.dark-mode .section-header p {
+      color: #bcbcbc;
+    }
+
+    /* Glassmorphic card grid: 3x3 ratio — each card has fixed aspect ratio 1/1 (square) but content inside creates perfect 3x3 layout */
+    .service-glass-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .glass-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      aspect-ratio: 1 / 1;
+      /* 3x3 ratio = square, perfectly balanced grid 3 columns = 3x3 visual rhythm */
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    body.dark-mode .glass-card {
+      background: rgba(30, 30, 40, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
+      border-color: rgba(0, 63, 97, 0.4);
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+      z-index: 0;
+    }
+
+    .glass-card:hover .card-bg {
+      transform: scale(1.08);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
+      border-radius: 28px;
+      transition: all 0.3s;
+    }
+
+    .glass-card:hover .card-content {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 80%);
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      color: #ffeedd;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.3px;
+    }
+
+    .card-content p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.4;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease-out;
+      overflow: hidden;
+    }
+
+    .glass-card:hover .card-content p {
+      max-height: 80px;
+      opacity: 1;
+      transform: translateY(0);
+      margin-top: 0.5rem;
+    }
+
+    .card-tag {
+      display: inline-block;
+      background: rgba(0, 63, 97, 0.7);
+      backdrop-filter: blur(4px);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: white;
+      margin-top: 0.6rem;
+      width: fit-content;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 1000px) {
+      .service-glass-grid {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .service-glass-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+
+      .glass-card {
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .service-glass-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .glass-card {
+        aspect-ratio: 1 / 1;
+        max-width: 380px;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+
+    /* Service CTA Section */
+    .service-cta {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #003f61 0%, #1a5a7a 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-cta::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      top: -150px;
+      right: -150px;
+    }
+
+    .service-cta-container {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .service-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .service-cta p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #003f61;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #5fa3b5;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .unique-footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 3rem 2rem 2rem;
+      border-top: 4px solid #003f61;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+
+    .footer-brand p {
+      margin: 1.2rem 0 1.8rem;
+      color: #cccccc;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .social-links a {
+      color: #cccccc;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-col a {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .newsletter p {
+      color: #cccccc;
+      margin-bottom: 1.2rem;
+    }
+
+    .newsletter-input {
+      display: flex;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    .newsletter-input input {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0.3rem 0;
+      width: 100%;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .newsletter-input input::placeholder {
+      color: #666;
+    }
+
+    .newsletter-input button {
+      background: none;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.8rem;
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom a {
+      color: #999;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    @media (max-width: 900px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-up {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    /* Tablet view (768px to 1024px) → 2x2 footer grid */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Flam<span>ora</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="index.html" data-nav="home">Home</a>
+          <ul class="dropdown-content">
+            <li><a href="index.html" data-nav="home1">Home 1</a></li>
+            <li><a href="home2.html" data-nav="home2">Home 2</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" data-nav="about">About</a></li>
+        <li><a href="service.html" class="active" data-nav="service">Service</a></li>
+        <li><a href="collection.html" data-nav="blends">Collection</a></li>
+        <li><a href="experience.html" data-nav="ritual">Experience</a></li>
+        <li><a href="personalize.html" data-nav="personalize">Personalize</a></li>
+        <li><a href="giftSet.html" data-nav="giftsets">GiftSets</a></li>
+        <li><a href="contact.html" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div class="action-buttons">
+          <!-- Only Login button - Signup removed -->
+          <a href="login.html" class="nav-btn login-btn" data-nav="login">Login</a>
+          <div class="dark-toggle" id="darkToggleBtn" aria-label="Dark mode toggle">🌙</div>
+          <div class="rtl-toggle" id="rtlToggleBtn" aria-label="RTL toggle">LTR</div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">✕</button>
+    <ul class="mobile-nav-links">
+      <li class="mobile-nav-item" data-mobile-dropdown="homeDropdown">
+        <div class="mobile-dropdown-toggle"><span>Home</span><span>▼</span></div>
+        <div class="mobile-dropdown-content" id="homeDropdown">
+          <a href="index.html" data-nav="home1">Home 1</a>
+          <a href="home2.html" data-nav="home2">Home 2</a>
+        </div>
+      </li>
+      <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link" data-nav="about">About</a></li>
+      <li class="mobile-nav-item"><a href="service.html" class="mobile-nav-link active" data-nav="service">Service</a>
+      </li>
+      <li class="mobile-nav-item"><a href="collection.html" class="mobile-nav-link" data-nav="collection">Collection</a>
+      </li>
+      <li class="mobile-nav-item"><a href="experience.html" class="mobile-nav-link" data-nav="experience">Experience</a>
+      </li>
+      <li class="mobile-nav-item"><a href="personalize.html" class="mobile-nav-link"
+          data-nav="personalize">Personalize</a></li>
+      <li class="mobile-nav-item"><a href="giftSet.html" class="mobile-nav-link" data-nav="giftsets">GiftSets</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link" data-nav="contact">Contact</a></li>
+      <li class="mobile-nav-item"><a href="login.html" class="mobile-nav-link" data-nav="login-mobile">Login</a></li>
+      <li class="mobile-nav-item">
+        <div style="display: flex; gap: 1rem; padding: 1rem 0;">
+          <div class="dark-toggle" id="mobileDarkToggle" style="width: 48%; justify-content: center;">🌙 Dark</div>
+          <div class="rtl-toggle" id="mobileRtlToggle" style="width: 48%; justify-content: center;">LTR</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="service-hero">
+      <div class="service-hero-bg"></div>
+      <div class="service-hero-overlay fade-up">
+        <div class="section-label">Handcrafted Excellence</div>
+        <h1>Artisanal Services<br>For Discerning Souls</h1>
+        <p>From bespoke candle crafting to sensory consultations — we offer a range of services rooted in botanical
+          tradition and handcrafted mastery.</p>
+        <a href="#services" class="hero-btn">Explore Services →</a>
+      </div>
+    </section>
+
+    <!-- 3x3 GLASS CARDS GRID: Homemade Candle Topics with perfect 1:1 ratio (3x3 layout) -->
+    <section class="services-grid-section" id="services">
+      <div class="section-header">
+        <span class="tag">ARTISANAL CANDLE MASTERY</span>
+        <h2>Homemade Candle Journeys</h2>
+        <p>Discover the soul of candle-making with our immersive services — each crafted to ignite your senses.</p>
+      </div>
+      <div class="service-glass-grid">
+        <!-- Card 1: Bespoke Soy Wax Blending -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (1).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-seedling"></i></div>
+            <h3>Bespoke Soy Wax</h3>
+            <p>Hand-poured soy wax blended with essential oils. Craft your signature scent with our master chandlers.
+            </p>
+            <span class="card-tag">Soy Artistry</span>
+          </div>
+        </div>
+        <!-- Card 2: Botanical Infusion Ritual -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (2).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-leaf"></i></div>
+            <h3>Botanical Infusion</h3>
+            <p>Dried flowers, herbs & natural crystals embedded in pure wax. Sensory home decor meets aromatherapy.</p>
+            <span class="card-tag">Floral Harmony</span>
+          </div>
+        </div>
+        <!-- Card 3: Wooden Wick Experience -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (3).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-fire"></i></div>
+            <h3>Wooden Wick Ceremony</h3>
+            <p>Crackling wooden wick candles that bring cozy ambiance. Master the art of slow, even burns.</p>
+            <span class="card-tag">Crackling Ember</span>
+          </div>
+        </div>
+        <!-- Card 4: Aromatherapy Blending Lab -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (4).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-mortar-pestle"></i></div>
+            <h3>Aromatherapy Lab</h3>
+            <p>Create therapeutic blends with lavender, eucalyptus & rare absolutes. Tailored for mood & wellbeing.</p>
+            <span class="card-tag">Mindful Scents</span>
+          </div>
+        </div>
+        <!-- Card 5: Hand-Carved Pillar Candles -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (6).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
+            <h3>Carved Pillar Art</h3>
+            <p>Intricately sculpted pillars with marbled finishes. Heirloom-quality candles for collectors.</p>
+            <span class="card-tag">Sculptural Wax</span>
+          </div>
+        </div>
+        <!-- Card 6: Seasonal Limited Editions -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (7).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3>Seasonal Collection</h3>
+            <p>Limited harvest blends: spiced pumpkin, winter pine, spring blooms — handmade in micro batches.</p>
+            <span class="card-tag">Limited Drops</span>
+          </div>
+        </div>
+        <!-- Card 7: Private Candle Atelier -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (8).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>Private Atelier</h3>
+            <p>One-on-one sessions with our master candlemaker. Design, pour & take home your custom collection.</p>
+            <span class="card-tag">Exclusive Studio</span>
+          </div>
+        </div>
+        <!-- Card 8: Eco-Luxe Refill Service -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (9).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-recycle"></i></div>
+            <h3>Eco-Refill Ritual</h3>
+            <p>Sustainable vessel refills using organic wax & compostable packaging. Zero-waste candle luxury.</p>
+            <span class="card-tag">Circular Craft</span>
+          </div>
+        </div>
+        <!-- Card 9: Wedding & Event Candles -->
+        <div class="glass-card">
+          <div class="card-bg" style="background-image: url('images/img (10).jpg'); background-size: cover;"></div>
+          <div class="card-content">
+            <div class="card-icon"><i class="fas fa-ring"></i></div>
+            <h3>Event Candle Suite</h3>
+            <p>Bespoke candles for weddings, celebrations. Personalized labels, scents & elegant centerpieces.</p>
+            <span class="card-tag">Celebration Wax</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+      <div class="service-cta-container">
+        <h2>Ready to Begin Your Journey?</h2>
+        <p>Whether you're seeking a custom creation, a workshop experience, or expert guidance — we're here to bring
+          your vision to life.</p>
+        <a href="contact.html" class="cta-button">Start a Conversation →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="unique-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
+          <span style="color: white; font-size: 1.6rem; font-weight: 700;">Flam<span
+              style="color: #003f61;">ora</span></span>
+        </div>
+        <p>Botanical elegance, timeless aroma. Bringing nature's finest blends to your ritual.</p>
+        <div class="social-links"><i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>QuickLinks</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Wholesale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col newsletter">
+        <h4>Mail Box</h4>
+        <p>Subscribe for early releases & 15% off.</p>
+        <div class="newsletter-input"><input type="email" placeholder="Your email" id="newsletterEmail"><button
+            id="newsletterSubmitBtn">→</button></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Flamora. All rights reserved</span><span><a href="#">Privacy</a><a
+          href="#">Terms</a><a href="#">Accessibility</a></span></div>
+  </footer>
+
+  <script>
+    (function () {
+      const darkToggle = document.getElementById('darkToggleBtn');
+      const mobileDark = document.getElementById('mobileDarkToggle');
+      const rtlToggle = document.getElementById('rtlToggleBtn');
+      const mobileRtl = document.getElementById('mobileRtlToggle');
+      const hamburger = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMenu = document.getElementById('closeMenuBtn');
+      const newsletterBtn = document.getElementById('newsletterSubmitBtn');
+      const newsletterInput = document.getElementById('newsletterEmail');
+
+      function setActiveLink(clickedLink) {
+        document.querySelectorAll('.nav-links a, .mobile-nav-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        clickedLink.classList.add('active');
+      }
+
+      // Navigation links - ALLOW ACTUAL NAVIGATION
+      document.querySelectorAll('.nav-links a, .mobile-nav-link, .dropdown-content a, .hero-btn, .cta-button, .overlay-btn').forEach(link => {
+        link.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href === '#' || href === '' || href === null) {
+            e.preventDefault();
+          }
+          if (this.getAttribute('data-nav') !== undefined || this.classList.contains('mobile-nav-link')) {
+            setActiveLink(this);
+          }
+        });
+      });
+
+      const setDarkMode = (isDark) => {
+        document.body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('darkMode', isDark);
+        if (darkToggle) darkToggle.innerText = isDark ? '☀️' : '🌙';
+        if (mobileDark) mobileDark.innerText = isDark ? '☀️ Light' : '🌙 Dark';
+      };
+      const savedDark = localStorage.getItem('darkMode') === 'true';
+      setDarkMode(savedDark);
+      darkToggle?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+      mobileDark?.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+
+      const setRTL = (isRTL) => {
+        document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+        localStorage.setItem('rtlMode', isRTL);
+        const rtlText = isRTL ? 'RTL' : 'LTR';
+        if (rtlToggle) rtlToggle.innerText = rtlText;
+        if (mobileRtl) mobileRtl.innerText = rtlText;
+      };
+      const savedRTL = localStorage.getItem('rtlMode') === 'true';
+      setRTL(savedRTL);
+      rtlToggle?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+      mobileRtl?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+      hamburger?.addEventListener('click', () => mobileMenu.classList.add('active'));
+      closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('active'));
+      document.addEventListener('click', (e) => {
+        if (mobileMenu?.classList.contains('active') && !mobileMenu.contains(e.target) && !hamburger?.contains(e.target)) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-item[data-mobile-dropdown]').forEach(item => {
+        const toggleDiv = item.querySelector('.mobile-dropdown-toggle');
+        const contentId = item.getAttribute('data-mobile-dropdown');
+        const content = document.getElementById(contentId);
+        if (toggleDiv && content) {
+          toggleDiv.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.mobile-dropdown-content').forEach(drop => {
+              if (drop !== content && drop.classList.contains('active')) drop.classList.remove('active');
+            });
+            content.classList.toggle('active');
+            const arrowSpan = toggleDiv.querySelector('span:last-child');
+            if (arrowSpan) arrowSpan.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+          });
+        }
+      });
+
+      const handleNewsletter = () => {
+        const email = newsletterInput?.value.trim();
+        if (email && email.includes('@') && email.includes('.')) {
+          alert(`Thanks ${email} — you're now on the Flamora list!`);
+          newsletterInput.value = '';
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      };
+      newsletterBtn?.addEventListener('click', (e) => { e.preventDefault(); handleNewsletter(); });
+      newsletterInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleNewsletter(); } });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1281 && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

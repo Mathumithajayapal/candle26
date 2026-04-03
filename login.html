@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Flamora · Login | Botanical Essence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8f5f0 0%, #e8e2d9 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+      transition: background 0.2s ease;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: linear-gradient(135deg, #0a0a0a 0%, #001a24 100%);
+    }
+
+    /* Control Panel - Top Right - Fixed for small screens */
+    .control-panel {
+      position: fixed;
+      top: 0.75rem;
+      right: 0.75rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 0.4rem 0.6rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    body:not(.dark-mode) .control-panel {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-color: rgba(0, 63, 97, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-mode .control-panel {
+      background: rgba(0, 0, 0, 0.6);
+      border-color: rgba(0, 63, 97, 0.4);
+    }
+
+    /* RTL Support for control panel */
+    body[dir="rtl"] .control-panel {
+      right: auto;
+      left: 0.75rem;
+    }
+
+    .control-btn {
+      background: rgba(0, 63, 97, 0.15);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #003f61;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body.dark-mode .control-btn {
+      background: rgba(0, 63, 97, 0.3);
+      color: #5fa3b5;
+    }
+
+    .control-btn:hover {
+      background: #003f61;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    body.dark-mode .control-btn:hover {
+      background: #003f61;
+      color: white;
+    }
+
+    /* RTL Support */
+    body[dir="rtl"] {
+      direction: rtl;
+    }
+
+    body[dir="rtl"] .input-icon {
+      left: auto;
+      right: 1rem;
+    }
+
+    body[dir="rtl"] .input-field {
+      padding: 0.9rem 2.8rem 0.9rem 1rem;
+      text-align: right;
+    }
+
+    body[dir="rtl"] .form-options {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    body[dir="rtl"] .login-btn i {
+      transform: none;
+    }
+
+    /* Login Container - Better for small screens */
+    .login-container {
+      width: 100%;
+      max-width: 440px;
+      z-index: 2;
+      animation: fadeSlideUp 0.5s ease-out;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Card Design - Responsive padding */
+    .login-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 63, 97, 0.15);
+      border: 1px solid rgba(0, 63, 97, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.dark-mode .login-card {
+      background: rgba(18, 18, 20, 0.92);
+      border-color: rgba(0, 63, 97, 0.3);
+    }
+
+    .login-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 25px 45px -15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Logo & Branding - Adjusted for small screens */
+    .logo-section {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .logo-text {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
+      margin-top: 0.25rem;
+    }
+
+    body.dark-mode .logo-text {
+      color: #ffffff;
+    }
+
+    .logo-text span {
+      color: #003f61;
+    }
+
+    .admin-badge {
+      display: inline-block;
+      background: rgba(0, 63, 97, 0.12);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #003f61;
+      margin-top: 0.35rem;
+    }
+
+    body.dark-mode .admin-badge {
+      background: rgba(0, 63, 97, 0.2);
+    }
+
+    /* Welcome text - Compact for small screens */
+    .welcome-text {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .welcome-text h2 {
+      color: #1a1a1a;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    body.dark-mode .welcome-text h2 {
+      color: #ffffff;
+    }
+
+    .welcome-text p {
+      color: #666;
+      font-size: 0.8rem;
+    }
+
+    body.dark-mode .welcome-text p {
+      color: #aaa;
+    }
+
+    /* Form Styles - Optimized for touch */
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .input-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      color: #003f61;
+      font-size: 1rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 2.6rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 63, 97, 0.3);
+      border-radius: 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #1a1a1a;
+      transition: all 0.25s ease;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    body.dark-mode .input-field {
+      background: rgba(30, 30, 35, 0.9);
+      border-color: rgba(0, 63, 97, 0.4);
+      color: #ffffff;
+    }
+
+    .input-field:focus {
+      border-color: #003f61;
+      box-shadow: 0 0 0 3px rgba(0, 63, 97, 0.2);
+      background: #ffffff;
+    }
+
+    body.dark-mode .input-field:focus {
+      background: rgba(40, 40, 45, 0.95);
+    }
+
+    .input-field::placeholder {
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+
+    /* Options row - Better spacing */
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #5a5a5a;
+      cursor: pointer;
+    }
+
+    body.dark-mode .checkbox-label {
+      color: #aaa;
+    }
+
+    .checkbox-label input {
+      accent-color: #003f61;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .forgot-link {
+      color: #003f61;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 0.75rem;
+    }
+
+    /* Login Button */
+    .login-btn {
+      width: 100%;
+      background: #003f61;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 3px 10px rgba(0, 63, 97, 0.25);
+    }
+
+    .login-btn:hover {
+      background: #002b42;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(0, 63, 97, 0.35);
+    }
+
+    .login-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.7rem;
+      margin: 1.2rem 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid rgba(0, 63, 97, 0.2);
+    }
+
+    .divider span {
+      margin: 0 0.7rem;
+    }
+
+    /* Signup link */
+    .signup-link {
+      text-align: center;
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    body.dark-mode .signup-link {
+      color: #aaa;
+    }
+
+    .signup-link a {
+      color: #003f61;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Error message */
+    .error-message {
+      background: rgba(220, 38, 38, 0.12);
+      border-left: 3px solid #dc2626;
+      color: #dc2626;
+      padding: 0.6rem 0.9rem;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    body.dark-mode .error-message {
+      color: #fecaca;
+      background: rgba(220, 38, 38, 0.15);
+    }
+
+    .error-message.show {
+      display: flex;
+    }
+
+   
+
+    /* Responsive for very small screens (iPhone SE, Galaxy small) */
+    @media (max-width: 480px) {
+      body {
+        padding: 0.75rem;
+        align-items: flex-start;
+        padding-top: 4rem;
+      }
+      
+      .login-card {
+        padding: 1.25rem 1.25rem;
+        border-radius: 1.25rem;
+      }
+      
+      .logo-text {
+        font-size: 1.5rem;
+      }
+      
+      .welcome-text h2 {
+        font-size: 1.25rem;
+      }
+      
+      .welcome-text p {
+        font-size: 0.75rem;
+      }
+      
+      .input-field {
+        padding: 0.7rem 1rem 0.7rem 2.4rem;
+        font-size: 0.85rem;
+      }
+      
+      .input-icon {
+        font-size: 0.9rem;
+        left: 0.85rem;
+      }
+      
+      body[dir="rtl"] .input-icon {
+        left: auto;
+        right: 0.85rem;
+      }
+      
+      body[dir="rtl"] .input-field {
+        padding: 0.7rem 2.4rem 0.7rem 1rem;
+      }
+      
+      .login-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+      }
+      
+      .control-panel {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.35rem 0.5rem;
+        gap: 0.4rem;
+      }
+      
+      body[dir="rtl"] .control-panel {
+        right: auto;
+        left: 0.5rem;
+      }
+      
+      .control-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+      }
+      
+      .form-options {
+        font-size: 0.7rem;
+      }
+      
+      .demo-credentials {
+        font-size: 0.6rem;
+        padding: 0.5rem;
+      }
+    }
+
+    /* For very small heights */
+    @media (max-height: 600px) and (max-width: 480px) {
+      body {
+        padding-top: 3.5rem;
+      }
+      
+      .login-card {
+        padding: 1rem 1.25rem;
+      }
+      
+      .logo-section {
+        margin-bottom: 0.75rem;
+      }
+      
+      .welcome-text {
+        margin-bottom: 1rem;
+      }
+      
+      .form-group {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    /* Touch-friendly improvements */
+    .control-btn, .login-btn, .forgot-link, .signup-link a, .checkbox-label {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .control-btn:active, .login-btn:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Control Panel - Top Right -->
+  <div class="control-panel">
+    <button class="control-btn" id="darkToggleBtn" title="Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="control-btn" id="rtlToggleBtn" title="RTL/LTR Mode">
+      LTR
+    </button>
+  </div>
+
+  <div class="login-container">
+    <div class="login-card">
+      
+      <!-- Logo & Branding -->
+      <div class="logo-section">
+        <div class="logo-text">
+          <a href="index.html" style="text-decoration: none; color: inherit;">Flam<span>ora</span></a>
+        </div>
+        <div class="admin-badge">
+          <i class="fas fa-leaf" style="font-size: 0.65rem;"></i> Sign in to your account
+        </div>
+      </div>
+
+      <!-- Welcome message -->
+      <div class="welcome-text">
+        <h2>Welcome back</h2>
+        <p>Sign in to continue your botanical journey</p>
+      </div>
+
+      <!-- Error notification -->
+      <div id="errorBox" class="error-message">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorText">Invalid credentials. Please try again.</span>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" action="#" method="post">
+        <div class="form-group">
+          <div class="input-group">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" id="emailInput" class="input-field" placeholder="Email address" value="demo@flamora.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-group">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" id="passwordInput" class="input-field" placeholder="Password" value="demo123" autocomplete="current-password">
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberCheckbox"> <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-link" id="forgotPasswordLink">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">
+          <i class="fas fa-arrow-right-to-bracket"></i> Sign In
+        </button>
+      </form>
+
+      <div class="divider">
+        <span>new to Flamora?</span>
+      </div>
+
+      <div class="signup-link">
+        Don't have an account? <a href="signup.html" id="signupLink">Create an account</a>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Demo credentials
+      const VALID_EMAIL = "demo@flamora.com";
+      const VALID_PASSWORD = "demo123";
+
+      // DOM elements
+      const loginForm = document.getElementById('loginForm');
+      const emailInput = document.getElementById('emailInput');
+      const passwordInput = document.getElementById('passwordInput');
+      const errorBox = document.getElementById('errorBox');
+      const errorTextSpan = document.getElementById('errorText');
+      const rememberCheckbox = document.getElementById('rememberCheckbox');
+      const forgotLink = document.getElementById('forgotPasswordLink');
+      const signupLink = document.getElementById('signupLink');
+      const darkToggleBtn = document.getElementById('darkToggleBtn');
+      const rtlToggleBtn = document.getElementById('rtlToggleBtn');
+
+      // Helper to show error
+      function showError(message) {
+        errorTextSpan.innerText = message;
+        errorBox.classList.add('show');
+        setTimeout(() => {
+          errorBox.classList.remove('show');
+        }, 3500);
+      }
+
+      // Handle successful login
+      function handleSuccessfulLogin() {
+        if (rememberCheckbox.checked) {
+          localStorage.setItem('flamora_remembered', 'true');
+          localStorage.setItem('flamora_email', emailInput.value.trim());
+        } else {
+          localStorage.removeItem('flamora_remembered');
+          localStorage.removeItem('flamora_email');
+        }
+        
+        const btn = document.querySelector('.login-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Redirecting...';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+          alert('✨ Welcome back to Flamora! Redirecting to dashboard... ✨');
+          window.location.href = 'dashboard.html';
+        }, 800);
+      }
+
+      // Login submission handler
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        
+        if (!email || !password) {
+          showError('Please enter both email and password.');
+          return;
+        }
+        
+        if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+          handleSuccessfulLogin();
+        } else {
+          showError('Incorrect email or password. Use demo@flamora.com / demo123');
+          const card = document.querySelector('.login-card');
+          card.style.transform = 'translateX(3px)';
+          setTimeout(() => { card.style.transform = ''; }, 100);
+          setTimeout(() => { card.style.transform = 'translateX(-3px)'; }, 150);
+          setTimeout(() => { card.style.transform = ''; }, 250);
+        }
+      });
+      
+      // Forgot password
+      forgotLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('🔐 Password reset link would be sent to your email. For demo, use demo@flamora.com / demo123');
+      });
+      
+      
+      
+      // ==================== DARK MODE FUNCTIONALITY ====================
+      function initDarkMode() {
+        const savedMode = localStorage.getItem('flamora_darkMode');
+        if (savedMode === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+          document.body.classList.remove('dark-mode');
+          darkToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+      }
+      
+      function toggleDarkMode() {
+        if (document.body.classList.contains('dark-mode')) {
+          document.body.classList.remove('dark-mode');
+          localStorage.setItem('flamora_darkMode', 'light');
+          darkToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
+          document.body.classList.add('dark-mode');
+          localStorage.setItem('flamora_darkMode', 'dark');
+          darkToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+      }
+      
+      // ==================== RTL FUNCTIONALITY ====================
+      function initRTL() {
+        const savedDir = localStorage.getItem('flamora_dir');
+        if (savedDir === 'rtl') {
+          document.body.setAttribute('dir', 'rtl');
+          rtlToggleBtn.innerHTML = 'RTL';
+        } else {
+          document.body.setAttribute('dir', 'ltr');
+          rtlToggleBtn.innerHTML = 'LTR';
+        }
+      }
+      
+      function toggleRTL() {
+        if (document.body.getAttribute('dir') === 'rtl') {
+          document.body.setAttribute('dir', 'ltr');
+          localStorage.setItem('flamora_dir', 'ltr');
+          rtlToggleBtn.innerHTML = 'LTR';
+        } else {
+          document.body.setAttribute('dir', 'rtl');
+          localStorage.setItem('flamora_dir', 'rtl');
+          rtlToggleBtn.innerHTML = 'RTL';
+        }
+      }
+      
+      // Add event listeners
+      darkToggleBtn.addEventListener('click', toggleDarkMode);
+      rtlToggleBtn.addEventListener('click', toggleRTL);
+      
+      // Prefill from localStorage if "remember me" was previously set
+      window.addEventListener('DOMContentLoaded', function() {
+        initDarkMode();
+        initRTL();
+        
+        const remembered = localStorage.getItem('flamora_remembered');
+        if (remembered === 'true') {
+          const savedEmail = localStorage.getItem('flamora_email');
+          if (savedEmail) {
+            emailInput.value = savedEmail;
+            rememberCheckbox.checked = true;
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>

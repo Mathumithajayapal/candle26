@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Home Fragrance Curation · Flamora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/jpeg" href="Images\favicon.jpg">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #0e0d0b;
+      --cream: #f5f1eb;
+      --parchment: #ede8df;
+      --navy: #003f61;
+      --mist: #5fa3b5;
+      --gold: #b8955a;
+      --sage: #7a8c72;
+      --blush: #d4b8a0;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER (shared, untouched) ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #000;
+    }
+
+    .logo-text span {
+      color: #003f61;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: #003f61;
+      }
+
+      .action-buttons {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+
+    .action-buttons {
+      display: none;
+    }
+
+    .nav-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      border: 1.5px solid transparent;
+      font-size: 0.9rem;
+    }
+
+    .login-btn {
+      color: #003f61;
+      border-color: #dce1e3;
+    }
+
+    .signup-btn {
+      background: #003f61;
+      color: white;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background-color: #003f61;
+    }
+
+    @media (min-width: 1024px) {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    /* ── HERO ── */
+    .detail-hero {
+      position: relative;
+      height: 95vh;
+      min-height: 580px;
+      background: url('images/img (11).jpg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .detail-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg,
+          rgba(14, 13, 11, 0.05) 0%,
+          rgba(0, 63, 97, 0.3) 40%,
+          rgba(14, 13, 11, 0.82) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 3rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      font-weight: 500;
+    }
+
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--mist);
+    }
+
+    .breadcrumb .sep {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .breadcrumb .current {
+      color: var(--mist);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      background: rgba(184, 149, 90, 0.12);
+      border: 1px solid rgba(184, 149, 90, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: -1px;
+      max-width: 700px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--mist);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 520px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      background: var(--navy);
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--mist);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      background: transparent;
+      color: white;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-outline:hover {
+      border-color: white;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
+      writing-mode: vertical-rl;
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-scroll-hint::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ── FLOATING STATS ── */
+    .stats-bar {
+      background: var(--navy);
+      color: white;
+      padding: 0;
+    }
+
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 2rem 2.5rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--mist);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ── SECTION COMMONS ── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .eyebrow::after {
+      content: '';
+      flex: 0 0 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--ink);
+    }
+
+    .section-heading em {
+      font-style: italic;
+      color: var(--navy);
+    }
+
+    /* ── OVERVIEW ── */
+    .overview-section {
+      background: var(--white);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .overview-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .overview-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #444;
+    }
+
+    .overview-text p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      border: 1px solid var(--parchment);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--navy);
+      background: rgba(0, 63, 97, 0.04);
+    }
+
+    .overview-visual {
+      position: relative;
+    }
+
+    .img-frame {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-frame-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 60%;
+      aspect-ratio: 1;
+      background: var(--parchment);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      background: var(--gold);
+      color: white;
+      padding: 1.2rem;
+      border-radius: 4px;
+      text-align: center;
+      min-width: 100px;
+      box-shadow: 0 12px 40px rgba(184, 149, 90, 0.3);
+    }
+
+    .floating-badge .badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .floating-badge .badge-text {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      opacity: 0.85;
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .overview-visual {
+        order: -1;
+      }
+    }
+
+    /* ── PROCESS ── */
+    .process-section {
+      background: var(--ink);
+      color: white;
+    }
+
+    .process-section .eyebrow {
+      color: var(--mist);
+    }
+
+    .process-section .eyebrow::after {
+      background: var(--mist);
+    }
+
+    .process-section .section-heading {
+      color: white;
+    }
+
+    .process-section .section-heading em {
+      color: var(--mist);
+    }
+
+    .process-header {
+      margin-bottom: 4rem;
+      max-width: 600px;
+    }
+
+    .process-header p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.55);
+      margin-top: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .steps-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+      gap: 0;
+    }
+
+    .steps-track::before {
+      content: '';
+      position: absolute;
+      top: 2.6rem;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .step {
+      padding: 0 2rem 0 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 1px solid rgba(95, 163, 181, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--mist);
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 900px) {
+      .steps-track {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+
+      .steps-track::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .steps-track {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-section {
+      background: var(--parchment);
+    }
+
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3.5rem;
+    }
+
+    .included-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .included-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      background: rgba(0, 63, 97, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--sage);
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .included-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .included-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── GALLERY ── */
+    .gallery-section {
+      background: var(--white);
+      padding: 5rem 0;
+    }
+
+    .gallery-header {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+    }
+
+    .gallery-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .gallery-link:hover {
+      color: var(--mist);
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 0 2rem;
+      scrollbar-width: none;
+    }
+
+    .gallery-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-item {
+      flex: 0 0 300px;
+      aspect-ratio: 3/4;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1.2rem 1rem;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+      color: white;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .tcard {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 4px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .tcard::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--parchment);
+      pointer-events: none;
+    }
+
+    .tcard-text {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #555;
+      font-style: italic;
+    }
+
+    .tcard-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-top: auto;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--parchment);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      font-family: 'Cormorant Garamond', serif;
+      flex-shrink: 0;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .author-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .author-loc {
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── PRICING ── */
+    .pricing-section {
+      background: var(--ink);
+      color: white;
+    }
+
+    .pricing-section .eyebrow {
+      color: var(--mist);
+    }
+
+    .pricing-section .eyebrow::after {
+      background: var(--mist);
+    }
+
+    .pricing-section .section-heading {
+      color: white;
+    }
+
+    .pricing-section .section-heading em {
+      color: var(--mist);
+    }
+
+    .pricing-intro {
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 1.2rem;
+      max-width: 500px;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3.5rem;
+    }
+
+    .plan {
+      background: #1a1a1a;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .plan.featured {
+      background: var(--navy);
+      outline: 1px solid rgba(95, 163, 181, 0.4);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--mist);
+      color: white;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+    }
+
+    .plan-name {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .plan-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: 1;
+      color: white;
+    }
+
+    .plan-price sup {
+      font-size: 1.2rem;
+      vertical-align: top;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+
+    .plan-price-note {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.35);
+      margin-top: -0.5rem;
+    }
+
+    .plan-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      margin: 0.5rem 0;
+    }
+
+    .plan-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+    }
+
+    .plan-feature .check {
+      color: var(--mist);
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 0.9rem;
+    }
+
+    .plan-cta {
+      margin-top: auto;
+      padding-top: 1.5rem;
+    }
+
+    .plan-btn {
+      display: block;
+      width: 100%;
+      padding: 0.85rem;
+      text-align: center;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.3px;
+    }
+
+    .plan:not(.featured) .plan-btn {
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .plan:not(.featured) .plan-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .plan.featured .plan-btn {
+      background: var(--mist);
+      color: white;
+    }
+
+    .plan.featured .plan-btn:hover {
+      background: #4e9aad;
+    }
+
+    @media (max-width: 900px) {
+      .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      background: var(--parchment);
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .faq-sidebar {
+      position: sticky;
+      top: 120px;
+    }
+
+    .faq-sidebar p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      margin-top: 1.2rem;
+    }
+
+    .faq-sidebar a {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-q {
+      padding: 1.3rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--ink);
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .faq-arrow {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--navy);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      background: var(--navy);
+      color: white;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.75;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-bottom: 1.3rem;
+    }
+
+    @media (max-width: 860px) {
+      .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .faq-sidebar {
+        position: static;
+      }
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--white);
+      padding: 7rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: 'FRAGRANCE';
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(5rem, 12vw, 12rem);
+      font-weight: 300;
+      color: rgba(0, 63, 97, 0.04);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 0.2em;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-inner .eyebrow {
+      justify-content: center;
+    }
+
+    .cta-inner .eyebrow::after {
+      display: none;
+    }
+
+    .cta-inner .section-heading {
+      margin: 1rem 0 1.5rem;
+      color: var(--ink);
+    }
+
+    .cta-inner p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-dark {
+      padding: 1rem 2.4rem;
+      border-radius: 4px;
+      background: var(--ink);
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-dark:hover {
+      background: var(--navy);
+    }
+
+    /* ── FOOTER (shared, untouched) ── */
+    .unique-footer {
+      background-color: #000;
+      color: #fff;
+      padding: 3rem 2rem 2rem;
+      border-top: 4px solid #003f61;
+      margin-top: 0;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+      gap: 2.5rem;
+    }
+
+    .footer-brand p {
+      margin: 1.2rem 0 1.8rem;
+      color: #ccc;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.4rem;
+    }
+
+    .social-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #003f61;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-col a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #003f61;
+    }
+
+    .newsletter p {
+      color: #ccc;
+      margin-bottom: 1.2rem;
+    }
+
+    .newsletter-input {
+      display: flex;
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    .newsletter-input input {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0.3rem 0;
+      width: 100%;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .newsletter-input input::placeholder {
+      color: #666;
+    }
+
+    .newsletter-input button {
+      background: none;
+      border: none;
+      color: #003f61;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 2rem auto 0;
+      padding-top: 1.8rem;
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom a {
+      color: #999;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover {
+      color: #003f61;
+    }
+
+    @media (max-width: 900px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+      }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 4rem 1.2rem;
+      }
+
+      .detail-hero .hero-inner {
+        padding: 0 1.5rem 3rem;
+      }
+
+      .hero-scroll-hint {
+        display: none;
+      }
+
+      .plans-grid {
+        max-width: 100%;
+      }
+
+      .gallery-scroll {
+        padding: 0 1.2rem;
+      }
+    }
+
+    /* ========== SERVICE PAGE STYLES ========== */
+
+    /* Hero Banner */
+    .service-hero {
+      position: relative;
+      height: 75vh;
+      min-height: 500px;
+      background: linear-gradient(135deg, #1a2a2a 0%, #0f1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .service-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/img (5).jpg') center/cover no-repeat;
+      opacity: 0.35;
+      filter: brightness(0.7);
+    }
+
+    .service-hero-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .service-hero .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: #5fa3b5;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .service-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: white;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #003f61;
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background: #5fa3b5;
+      transform: translateY(-2px);
+    }
+
+    .signup-btn {
+      background: #003f61;
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <section class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-overlay fade-up">
+      <div class="section-label">Handcrafted Excellence</div>
+      <h1>Artisanal Services<br>For Discerning Souls</h1>
+      <p>From bespoke candle crafting to sensory consultations — we offer a range of services rooted in botanical
+        tradition and handcrafted mastery.</p>
+      <a href="#services" class="hero-btn">Explore Services →</a>
+    </div>
+  </section>
+
+
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num">2,400+</span>
+        <span class="stat-label">Homes Curated</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">48</span>
+        <span class="stat-label">Botanical Accords</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">97%</span>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3–5</span>
+        <span class="stat-label">Day Delivery</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="overview-section">
+    <div class="section-inner">
+      <div class="overview-grid">
+        <div class="overview-text fade-up">
+          <div>
+            <div class="eyebrow">The Service</div>
+            <h2 class="section-heading">Your home, given<br><em>its own scent story</em></h2>
+          </div>
+          <p>Every home has its own rhythm, architecture, and light. Our curation experts work with you to decode that
+            essence and translate it into a fragrance wardrobe — a cohesive set of scents that evolve through your rooms
+            and throughout the day.</p>
+          <p>From a <strong>single statement room</strong> to a whole-home olfactory journey, we combine candles, reed
+            diffusers, room sprays, and incense in a layering system that feels <strong>natural, not
+              overwhelming</strong>.</p>
+          <div class="feature-pills">
+            <span class="pill">🕯️ Candle Pairing</span>
+            <span class="pill">🌿 Reed Diffusers</span>
+            <span class="pill">💨 Room Sprays</span>
+            <span class="pill">🪷 Incense Selection</span>
+            <span class="pill">🗓️ Seasonal Refresh</span>
+            <span class="pill">🎁 Gift Packaging</span>
+          </div>
+        </div>
+        <div class="overview-visual fade-up" style="transition-delay: 0.15s;">
+          <div class="floating-badge">
+            <div class="badge-num">10+</div>
+            <div class="badge-text">Years of<br>Expertise</div>
+          </div>
+          <div class="img-frame">
+            <img src="images/img (11).jpg" alt="Home Fragrance Setup">
+          </div>
+          <div class="img-frame-accent"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="how-it-works">
+    <div class="section-inner">
+      <div class="process-header fade-up">
+        <div class="eyebrow">Our Process</div>
+        <h2 class="section-heading">Curation in<br><em>four movements</em></h2>
+        <p>A thoughtful, unhurried process designed to feel as good as the result.</p>
+      </div>
+      <div class="steps-track">
+        <div class="step fade-up" style="transition-delay:0.05s">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <div class="step-title">Discover</div>
+            <div class="step-desc">A 30-minute consultation where we learn your home's architecture, lifestyle, and
+              scent memories through thoughtful questions.</div>
+          </div>
+        </div>
+        <div class="step fade-up" style="transition-delay:0.15s">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <div class="step-title">Design</div>
+            <div class="step-desc">Our perfumers map a scent palette for each room — considering light levels, room
+              purpose, and how scents interact.</div>
+          </div>
+        </div>
+        <div class="step fade-up" style="transition-delay:0.25s">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <div class="step-title">Curate</div>
+            <div class="step-desc">We hand-select products and quantities, creating layering guides so you're never
+              overwhelmed or underwhelmed.</div>
+          </div>
+        </div>
+        <div class="step fade-up" style="transition-delay:0.35s">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <div class="step-title">Deliver</div>
+            <div class="step-desc">Your curated collection arrives beautifully packaged with placement cards, care
+              guides, and a seasonal refresh reminder.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="included-section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">What's Included</div>
+        <h2 class="section-heading">Every detail,<br><em>considered</em></h2>
+      </div>
+      <div class="included-grid">
+        <div class="included-card fade-up" style="transition-delay:0.05s">
+          <div class="card-icon">🎙️</div>
+          <div class="card-title">Personal Consultation</div>
+          <div class="card-desc">One-on-one session with a certified fragrance curator to understand your style,
+            preferences, and home layout.</div>
+          <div class="card-tag">Included in all plans</div>
+        </div>
+        <div class="included-card fade-up" style="transition-delay:0.1s">
+          <div class="card-icon">🗺️</div>
+          <div class="card-title">Room-by-Room Scent Map</div>
+          <div class="card-desc">A detailed PDF guide showing which product goes where, when to use it, and how to layer
+            for depth and harmony.</div>
+          <div class="card-tag">Included in all plans</div>
+        </div>
+        <div class="included-card fade-up" style="transition-delay:0.15s">
+          <div class="card-icon">🕯️</div>
+          <div class="card-title">Curated Product Kit</div>
+          <div class="card-desc">Hand-picked candles, diffusers, and sprays — sourced from Flamora's premium botanical
+            range, selected specifically for you.</div>
+          <div class="card-tag">Signature & above</div>
+        </div>
+        <div class="included-card fade-up" style="transition-delay:0.2s">
+          <div class="card-icon">📦</div>
+          <div class="card-title">Ritual Packaging</div>
+          <div class="card-desc">Products arrive in our signature botanical box with tissue, placement cards, and a
+            hand-written welcome note.</div>
+          <div class="card-tag">Signature & above</div>
+        </div>
+        <div class="included-card fade-up" style="transition-delay:0.25s">
+          <div class="card-icon">🔄</div>
+          <div class="card-title">Seasonal Refresh</div>
+          <div class="card-desc">Quarterly scent updates to keep your home feeling alive — lighter for summer, deeper
+            and warmer for winter.</div>
+          <div class="card-tag">Annual plan only</div>
+        </div>
+        <div class="included-card fade-up" style="transition-delay:0.3s">
+          <div class="card-icon">📞</div>
+          <div class="card-title">Ongoing Support</div>
+          <div class="card-desc">Direct access to your curator via WhatsApp for restock guidance, gifting advice, or
+            simply checking in.</div>
+          <div class="card-tag">Annual plan only</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery-header">
+      <div class="fade-up">
+        <div class="eyebrow">Curated Spaces</div>
+        <h2 class="section-heading">Homes we've<br><em>transformed</em></h2>
+      </div>
+      <a href="#" class="gallery-link">View all →</a>
+    </div>
+    <div class="gallery-scroll">
+      <div class="gallery-item">
+        <img src="images/img (11).jpg" alt="Living Room Curation">
+        <div class="gallery-item-label">Modern Minimalist Living Room · Bengaluru</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img (11).jpg" alt="Bedroom Curation">
+        <div class="gallery-item-label">Serene Master Bedroom · Mumbai</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img (11).jpg" alt="Study Curation">
+        <div class="gallery-item-label">Focus-First Study · Delhi</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img (11).jpg" alt="Dining Curation">
+        <div class="gallery-item-label">Intimate Dining Space · Chennai</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img (11).jpg" alt="Entryway Curation">
+        <div class="gallery-item-label">Welcoming Entryway · Hyderabad</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Client Voices</div>
+        <h2 class="section-heading">What our clients<br><em>live with</em></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="tcard fade-up" style="transition-delay:0.05s">
+          <div class="stars">★★★★★</div>
+          <p class="tcard-text">I never knew scent could make such a difference to how my apartment feels. The living
+            room now has this warm, woody base that transitions to something light and green in the morning. I'm
+            obsessed.</p>
+          <div class="tcard-author">
+            <div class="avatar">P</div>
+            <div class="author-info">
+              <div class="author-name">Priya Menon</div>
+              <div class="author-loc">Bengaluru · Annual Plan</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard fade-up" style="transition-delay:0.15s">
+          <p class="tcard-text">My curator was extraordinary. She listened to things I didn't even know I was saying —
+            the fact that I prefer mornings, that I find citrus exhausting. The result was a totally personal
+            collection.</p>
+          <div class="stars">★★★★★</div>
+          <div class="tcard-author">
+            <div class="avatar">A</div>
+            <div class="author-info">
+              <div class="author-name">Arjun Shah</div>
+              <div class="author-loc">Mumbai · Signature Plan</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard fade-up" style="transition-delay:0.25s">
+          <div class="stars">★★★★★</div>
+          <p class="tcard-text">We used the curation service for our new office. Clients always remark on how the space
+            smells — it's become part of our brand. The seasonal refresh keeps it from ever feeling stale.</p>
+          <div class="tcard-author">
+            <div class="avatar">N</div>
+            <div class="author-info">
+              <div class="author-name">Nandita Krishnan</div>
+              <div class="author-loc">Delhi · Corporate Plan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="schedule">
+    <div class="section-inner">
+      <div class="fade-up">
+        <div class="eyebrow">Choose Your Experience</div>
+        <h2 class="section-heading">Invest in how<br><em>your home feels</em></h2>
+        <p class="pricing-intro">Every plan includes a personal consultation and room scent map. Choose how deep you
+          want to go.</p>
+      </div>
+      <div class="plans-grid">
+        <div class="plan fade-up" style="transition-delay:0.05s">
+          <div class="plan-name">Essentials</div>
+          <div class="plan-price"><sup>₹</sup>2,499</div>
+          <div class="plan-price-note">One-time · Up to 2 rooms</div>
+          <hr class="plan-divider">
+          <div class="plan-feature"><span class="check">✓</span><span>30-min consultation</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Room-by-room scent map</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Product recommendation list</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Layering guide PDF</span></div>
+          <div class="plan-cta"><a href="#" class="plan-btn">Get Started</a></div>
+        </div>
+        <div class="plan featured fade-up" style="transition-delay:0.15s">
+          <div class="plan-badge">Most Popular</div>
+          <div class="plan-name">Signature</div>
+          <div class="plan-price"><sup>₹</sup>6,999</div>
+          <div class="plan-price-note">One-time · Full home (up to 5 rooms)</div>
+          <hr class="plan-divider">
+          <div class="plan-feature"><span class="check">✓</span><span>60-min deep consultation</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Full-home scent map</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Curated product kit included</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Ritual packaging & placement cards</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>30-day email support</span></div>
+          <div class="plan-cta"><a href="#" class="plan-btn">Choose Signature</a></div>
+        </div>
+        <div class="plan fade-up" style="transition-delay:0.25s">
+          <div class="plan-name">Annual Ritual</div>
+          <div class="plan-price"><sup>₹</sup>18,999</div>
+          <div class="plan-price-note">Per year · Everything + seasonal refreshes</div>
+          <hr class="plan-divider">
+          <div class="plan-feature"><span class="check">✓</span><span>Everything in Signature</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>4 seasonal curations per year</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Dedicated curator (WhatsApp access)</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Priority product restocking</span></div>
+          <div class="plan-feature"><span class="check">✓</span><span>Annual home scent review</span></div>
+          <div class="plan-cta"><a href="#" class="plan-btn">Begin the Ritual</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-inner">
+      <div class="faq-layout">
+        <div class="faq-sidebar fade-up">
+          <div class="eyebrow">FAQ</div>
+          <h2 class="section-heading">Questions<br><em>answered</em></h2>
+          <p>Can't find what you're looking for? <a href="#">Chat with our team</a> — we usually reply within a few
+            hours.</p>
+        </div>
+        <div class="faq-list fade-up" style="transition-delay:0.1s">
+          <div class="faq-item open">
+            <div class="faq-q">How does the consultation work?<span class="faq-arrow">▾</span></div>
+            <div class="faq-a">Your consultation takes place over video call or in-person (in select cities). Your
+              curator will guide you through a series of questions about your home, lifestyle, scent history, and goals.
+              No preparation needed — just show up curious.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Do I need to buy Flamora products?<span class="faq-arrow">▾</span></div>
+            <div class="faq-a">The Essentials plan provides recommendations you can fulfil from any source. The
+              Signature and Annual plans include a hand-curated kit from our botanical range — but we'll always tell you
+              exactly what to look for if you prefer to source independently.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How long before I receive my kit?<span class="faq-arrow">▾</span></div>
+            <div class="faq-a">After your consultation and sign-off on the scent map, kits are dispatched within 2
+              business days and arrive in 3–5 days across India. Express delivery is available at checkout.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Can I gift this to someone?<span class="faq-arrow">▾</span></div>
+            <div class="faq-a">Absolutely. Fragrance curation makes an extraordinary gift. Select a plan, add a
+              personalised note at checkout, and we'll send the recipient a beautifully packaged voucher card with
+              instructions to book their consultation.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What if I'm not happy with the result?<span class="faq-arrow">▾</span></div>
+            <div class="faq-a">We offer one free revision session within 30 days of delivery. If after the revision
+              you're still not satisfied, we'll refund or exchange products — no awkward questions.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Is this available outside India?<span class="faq-arrow">▾</span></div>
+            <div class="faq-a">The consultation and scent map service is available globally via video call. Physical
+              product delivery currently covers India. International shipping is in beta — contact us to check your
+              location.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner fade-up">
+      <div class="eyebrow">Ready to Begin</div>
+      <h2 class="section-heading">Your home deserves<br><em>its own signature</em></h2>
+      <p>Join over 2,400 homes that have discovered the quiet power of intentional scent. Schedule your consultation
+        today.</p>
+      <div class="cta-btn-row">
+        <a href="#schedule" class="btn-dark">Schedule a Curation →</a>
+        <a href="#" class="btn-outline" style="color: var(--navy); border-color: rgba(0,63,97,0.3);">Browse
+          Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="unique-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:1rem;">
+          <span style="color:white;font-size:1.6rem;font-weight:700;">Flam<span style="color:#003f61;">ora</span></span>
+        </div>
+        <p>Botanical elegance, timeless aroma. Bringing nature's finest blends to your ritual.</p>
+        <div class="social-links"><a href="#">📘</a><a href="#">📷</a><a href="#">🐦</a><a href="#">🎵</a></div>
+      </div>
+      <div class="footer-col">
+        <h4>QuickLinks</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service</a></li>
+          <li><a href="#">Signup</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Wholesale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col newsletter">
+        <h4>Mail Box</h4>
+        <p>Subscribe for early releases & 15% off.</p>
+        <div class="newsletter-input">
+          <input type="email" placeholder="Your email" id="footerEmail">
+          <button id="footerSubmit">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Flamora. All rights reserved</span>
+      <span><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Newsletter
+    document.getElementById('footerSubmit')?.addEventListener('click', () => {
+      const v = document.getElementById('footerEmail').value.trim();
+      if (v && v.includes('@') && v.includes('.')) {
+        alert(`You're on the list, ${v}!`);
+        document.getElementById('footerEmail').value = '';
+      } else { alert('Please enter a valid email.'); }
+    });
+  </script>
+</body>
+
+</html>
