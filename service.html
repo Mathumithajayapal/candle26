@@ -248,10 +248,6 @@
       transition: transform 0.2s;
     }
 
-    .nav-item:hover > a::after {
-      transform: rotate(180deg);
-    }
-
     /* Remove dropdown arrow for non-dropdown items */
     .nav-links > li:not(.nav-item) > a::after {
       display: none;
@@ -480,9 +476,10 @@
     .service-hero-bg {
       position: absolute;
       inset: 0;
-      background: url('images/img (5).jpg') center/cover no-repeat;
-      opacity: 0.35;
-      filter: brightness(0.7);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.45;
+      filter: brightness(0.75);
     }
 
     .service-hero-overlay {
@@ -533,7 +530,7 @@
       transform: translateY(-2px);
     }
 
-    /* 3x3 GLASS CARD GRID SECTION (updated ratio and homemade candle focus) */
+    /* 3x3 GLASS CARD GRID SECTION */
     .services-grid-section {
       padding: 5rem 2rem;
       background-color: #fefaf5;
@@ -574,7 +571,7 @@
       color: #bcbcbc;
     }
 
-    /* Glassmorphic card grid: 3x3 ratio — each card has fixed aspect ratio 1/1 (square) but content inside creates perfect 3x3 layout */
+    /* Glassmorphic card grid */
     .service-glass-grid {
       max-width: 1280px;
       margin: 0 auto;
@@ -592,7 +589,6 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       aspect-ratio: 1 / 1;
-      /* 3x3 ratio = square, perfectly balanced grid 3 columns = 3x3 visual rhythm */
       cursor: pointer;
       border: 1px solid rgba(255, 255, 255, 0.5);
     }
@@ -610,16 +606,17 @@
       border-color: rgba(0, 63, 97, 0.4);
     }
 
-    .card-bg {
+    .card-img {
       position: absolute;
       inset: 0;
-      background-size: cover;
-      background-position: center;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.5s ease;
       z-index: 0;
     }
 
-    .glass-card:hover .card-bg {
+    .glass-card:hover .card-img {
       transform: scale(1.08);
     }
 
@@ -699,10 +696,6 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1.2rem;
       }
-
-      .glass-card {
-        aspect-ratio: 1 / 1;
-      }
     }
 
     @media (max-width: 550px) {
@@ -712,7 +705,6 @@
       }
 
       .glass-card {
-        aspect-ratio: 1 / 1;
         max-width: 380px;
         margin: 0 auto;
         width: 100%;
@@ -955,7 +947,6 @@
 
       <div class="header-actions">
         <div class="action-buttons">
-          <!-- Only Login button - Signup removed -->
           <a href="login.html" class="nav-btn login-btn" data-nav="login">Login</a>
           <div class="dark-toggle" id="darkToggleBtn" aria-label="Dark mode toggle">🌙</div>
           <div class="rtl-toggle" id="rtlToggleBtn" aria-label="RTL toggle">LTR</div>
@@ -1002,11 +993,10 @@
   </div>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section with standard img tag -->
     <section class="service-hero">
-<div class="service-hero-bg"
-     style="background: url('Images/img (6).jpg') center/cover no-repeat;">
-</div>      <div class="service-hero-overlay fade-up">
+      <img class="service-hero-bg" src="Images/img (6).jpg" alt="Artisanal Candle Background">
+      <div class="service-hero-overlay fade-up">
         <div class="section-label">Handcrafted Excellence</div>
         <h1>Artisanal Services<br>For Discerning Souls</h1>
         <p>From bespoke candle crafting to sensory consultations — we offer a range of services rooted in botanical
@@ -1015,7 +1005,7 @@
       </div>
     </section>
 
-    <!-- 3x3 GLASS CARDS GRID: Homemade Candle Topics with perfect 1:1 ratio (3x3 layout) -->
+    <!-- 3x3 GLASS CARDS GRID: All images now use standard <img> tags -->
     <section class="services-grid-section" id="services">
       <div class="section-header">
         <span class="tag">ARTISANAL CANDLE MASTERY</span>
@@ -1025,18 +1015,17 @@
       <div class="service-glass-grid">
         <!-- Card 1: Bespoke Soy Wax Blending -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (1).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (1).jpg" alt="Bespoke Soy Wax Blending">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-seedling"></i></div>
             <h3>Bespoke Soy Wax</h3>
-            <p>Hand-poured soy wax blended with essential oils. Craft your signature scent with our master chandlers.
-            </p>
+            <p>Hand-poured soy wax blended with essential oils. Craft your signature scent with our master chandlers.</p>
             <span class="card-tag">Soy Artistry</span>
           </div>
         </div>
         <!-- Card 2: Botanical Infusion Ritual -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (2).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (2).jpg" alt="Botanical Infusion Ritual">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-leaf"></i></div>
             <h3>Botanical Infusion</h3>
@@ -1046,7 +1035,7 @@
         </div>
         <!-- Card 3: Wooden Wick Experience -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (3).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (3).jpg" alt="Wooden Wick Experience">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-fire"></i></div>
             <h3>Wooden Wick Ceremony</h3>
@@ -1056,7 +1045,7 @@
         </div>
         <!-- Card 4: Aromatherapy Blending Lab -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (4).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (4).jpg" alt="Aromatherapy Blending Lab">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-mortar-pestle"></i></div>
             <h3>Aromatherapy Lab</h3>
@@ -1066,7 +1055,7 @@
         </div>
         <!-- Card 5: Hand-Carved Pillar Candles -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (6).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (6).jpg" alt="Hand-Carved Pillar Candles">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
             <h3>Carved Pillar Art</h3>
@@ -1076,7 +1065,7 @@
         </div>
         <!-- Card 6: Seasonal Limited Editions -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (7).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (7).jpg" alt="Seasonal Limited Editions">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
             <h3>Seasonal Collection</h3>
@@ -1086,7 +1075,7 @@
         </div>
         <!-- Card 7: Private Candle Atelier -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (8).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (8).jpg" alt="Private Candle Atelier">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
             <h3>Private Atelier</h3>
@@ -1096,7 +1085,7 @@
         </div>
         <!-- Card 8: Eco-Luxe Refill Service -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (9).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (9).jpg" alt="Eco-Luxe Refill Service">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-recycle"></i></div>
             <h3>Eco-Refill Ritual</h3>
@@ -1106,7 +1095,7 @@
         </div>
         <!-- Card 9: Wedding & Event Candles -->
         <div class="glass-card">
-          <div class="card-bg" style="background-image: url('images/img (10).jpg'); background-size: cover;"></div>
+          <img class="card-img" src="images/img (10).jpg" alt="Wedding and Event Candles">
           <div class="card-content">
             <div class="card-icon"><i class="fas fa-ring"></i></div>
             <h3>Event Candle Suite</h3>
@@ -1136,10 +1125,11 @@
               style="color: #003f61;">ora</span></span>
         </div>
         <p>Botanical elegance, timeless aroma. Bringing nature's finest blends to your ritual.</p>
-        <div class="social-links"><i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-tiktok"></i>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
       <div class="footer-col">
@@ -1191,7 +1181,7 @@
       }
 
       // Navigation links - ALLOW ACTUAL NAVIGATION
-      document.querySelectorAll('.nav-links a, .mobile-nav-link, .dropdown-content a, .hero-btn, .cta-button, .overlay-btn').forEach(link => {
+      document.querySelectorAll('.nav-links a, .mobile-nav-link, .dropdown-content a, .hero-btn, .cta-button').forEach(link => {
         link.addEventListener('click', function (e) {
           const href = this.getAttribute('href');
           if (href === '#' || href === '' || href === null) {
